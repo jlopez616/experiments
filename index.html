@@ -22,7 +22,7 @@
         <div id="unity-footer">
             <div id="unity-webgl-logo"></div>
             <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">Fraction Ball: Out of Bounds!</div>
+            <div id="unity-build-title">Fraction Ball: Out of Bounds?</div>
         </div>
     </div>
     <script>var buildUrl = "Build";
@@ -69,7 +69,7 @@
         var script = document.createElement("script");
         script.src = loaderUrl;
         script.onload = () => {
-            window.createUnityInstance(canvas, config, (progress) => {
+            createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
             }).then((unityInstance) => {
                 loadingBar.style.display = "none";
