@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Fraction Ball: Out of Bounds</title>
+    <title>Unity WebGL Player | Fraction Ball: Out of Bounds!</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
@@ -22,7 +22,7 @@
         <div id="unity-footer">
             <div id="unity-webgl-logo"></div>
             <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">Fraction Ball: Out of Bounds?</div>
+            <div id="unity-build-title">Fraction Ball: Out of Bounds :D</div>
         </div>
     </div>
     <script>var buildUrl = "Build";
@@ -72,6 +72,7 @@
             createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
             }).then((unityInstance) => {
+                window.unityInstance = unityInstance;
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                     unityInstance.SetFullscreen(1);
@@ -83,9 +84,11 @@
         document.body.appendChild(script);</script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
+         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
 
     <script>// Your web app's Firebase configuration
@@ -103,5 +106,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();</script>
+
+
 </body>
 </html>
