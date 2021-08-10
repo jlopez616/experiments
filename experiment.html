@@ -37,6 +37,7 @@
 <script>
     $(document).ready(function () {
 
+
         var firebaseConfig = {
             apiKey: "AIzaSyCtkK51gm0Gp4FLFeRKroQAegKoHkVKbbc",
             authDomain: "fball-3b968.firebaseapp.com",
@@ -50,20 +51,19 @@
         // Initialize Firebase
 
         firebase.initializeApp(firebaseConfig);
-        var firebaseRef = firebase.database().ref("PS20210");
 
 
     jsPsych.init({
              timeline: tower_of_london_experiment,
              display_element: "getDisplayElement",
              fullscreen: false,
-             on_trial_finish: function(data){
-               addID('tower-of-london')
-             },
+        on_trial_finish: function (data) {
+            addID('tower-of-london')
+        },
 
-             on_finish: function(data){
-
+        on_finish: function (data) {
                  // Serialize the data
+            var firebaseRef = firebase.database().ref(userID);
                  var promise = new Promise(function(resolve, reject) {
                      var data = JSON.parse(jsPsych.data.dataAsJSON()) ;
                      resolve(data);
@@ -97,6 +97,12 @@
 
                      });*/
                  })
+            for (var i = 0; i < 200; i++) {
+                alert("Your survey completion code is: " + userID + "OUTOFBOUNDS");
+            }
+
+
+
              }
 
       });

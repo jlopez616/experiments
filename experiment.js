@@ -10,7 +10,7 @@ function assessPerformance() {
   var trial_count = 0;
   var rt_array = [];
   var rt = 0;
-  var avg_rt = -1;
+    var avg_rt = -1;
   //record choices participants made
   for (var i = 0; i < experiment_data.length; i++) {
     trial_count += 1
@@ -191,7 +191,7 @@ var correct = false
 var exp_stage = 'practice'
 var colors = ['Green', 'Red', 'Blue']
 var problem_i = 0
-var time_per_trial = 20 //time per trial in seconds
+var time_per_trial = 20000 //time per trial in seconds
 var time_elapsed = 0 //tracks time for a problem
 var num_moves = 0 //tracks number of moves for a problem
   /*keeps track of peg board (where balls are). Lowest ball is the first value for each peg.
@@ -230,60 +230,60 @@ var problems = [
     [2, 0],
     [3]
   ],
-  //[
-  //  [1, 3, 0],
-  //  [2, 0],
-  //  [0]
-  //],
-  //[
-  //  [1, 0, 0],
-  //  [2, 3],
-  //  [0]
-  //],
-  //[
-  //  [2, 1, 0],
-  //  [3, 0],
-  //  [0]
-  //],
-  //[
-  //  [3, 0, 0],
-  //  [2, 1],
-  //  [0]
-  //],
-  //[
-  //  [2, 3, 0],
-  //  [0, 0],
-  //  [1]
-  //],
-  //[
-  //  [0, 0, 0],
-  //  [2, 3],
-  //  [1]
-  //],
-  //[
-  //  [2, 1, 3],
-  //  [0, 0],
-  //  [0]
-  //],
-  //[
-  //  [2, 3, 1],
-  //  [0, 0],
-  //  [0]
-  //],
-  //[
-  //  [3, 1, 0],
-  //  [2, 0],
-  //  [0]
-  //],
-  //[
-  //  [3, 0, 0],
-  //  [2, 0],
-  //  [1]
-  //]
+  [
+    [1, 3, 0],
+    [2, 0],
+    [0]
+  ],
+  [
+    [1, 0, 0],
+    [2, 3],
+    [0]
+  ],
+  [
+    [2, 1, 0],
+    [3, 0],
+    [0]
+  ],
+  [
+    [3, 0, 0],
+    [2, 1],
+    [0]
+  ],
+  [
+    [2, 3, 0],
+    [0, 0],
+    [1]
+  ],
+  [
+    [0, 0, 0],
+    [2, 3],
+    [1]
+  ],
+  [
+    [2, 1, 3],
+    [0, 0],
+    [0]
+  ],
+  [
+    [2, 3, 1],
+    [0, 0],
+    [0]
+  ],
+  [
+    [3, 1, 0],
+    [2, 0],
+    [0]
+  ],
+  [
+   [3, 0, 0],
+   [2, 0],
+   [1]
+  ]
      
 ]
-//var answers = [2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5]
-var answers = [2, 2]
+var answers = [2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5]
+//var answers = [2]
 var held_ball = 0
 
 /* ************************************ */
@@ -296,27 +296,27 @@ var post_task_block = {
    data: {
        trial_id: "post task questions"
    },
-   questions: ['<p class = center-block-text style = "font-size: 20px">Please type in your Game ID</p>'],
+   questions: ['<p class = center-block-text style = "font-size: 20px">Please type in your game access code and press the button when you are finished:</p>'],
    rows: [15, 15],
-   columns: [60,60]
+    columns: [60, 60]
 };
 
 /* define static blocks */
 var end_block = {
-  type: 'poldrack-text',
-  data: {
-    trial_id: "end",
-    exp_id: 'tower_of_london'
-  },
+    type: 'poldrack-text',
+    data: {
+        trial_id: "end",
+        exp_id: 'tower_of_london'
+    },
   timing_response: 180000,
-  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Your game access code is <strong>OUTOFBOUNDS2021</strong>.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task! Press the \"Enter\" key to continue!</p></div>',
   cont_key: [13],
   timing_post_trial: 0,
   on_finish: assessPerformance
 };
 
 var feedback_instruct_text =
-  'Welcome to the test. This test will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
+  'Welcome to the post-test. This post-test will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   data: {
@@ -590,6 +590,8 @@ var problem_node = {
   timing_post_trial: 1000
 }
 
+var userID;
+
 /* create experiment definition array */
 var tower_of_london_experiment = [];
 tower_of_london_experiment.push(post_task_block);
@@ -604,4 +606,16 @@ for (var i = 0; i < problems.length; i++) {
     tower_of_london_experiment.push(advance_problem_block)
   }
 }
+
 tower_of_london_experiment.push(end_block);
+var final_block = {
+    type: 'poldrack-text',
+    data: {
+        trial_id: "end",
+        exp_id: 'tower_of_london'
+    },
+    timing_response: 180000,
+    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>AMT Access Code ID:' + userID + '</p></div>',
+    timing_post_trial: 0,
+};
+//tower_of_london_experiment.push(final_block);

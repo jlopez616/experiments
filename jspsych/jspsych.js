@@ -501,8 +501,10 @@ var jsPsych = (function() {
 
   function startExperiment() {
 
-    var fullscreen = opts.fullscreen;
+      var fullscreen = opts.fullscreen;
 
+      //go();
+     
     // fullscreen setup
     if (fullscreen) {
       // check if keys are allowed in fullscreen mode
@@ -552,7 +554,7 @@ var jsPsych = (function() {
       DOM_target.html(timeline.end_message);
     }
 
-    if (document.exitFullscreen) {
+    /*if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.msExitFullscreen) {
       document.msExitFullscreen();
@@ -560,8 +562,8 @@ var jsPsych = (function() {
       document.mozCancelFullScreen();
     } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
-    }
-
+    }*/
+    
   }
 
   function doTrial(trial) {

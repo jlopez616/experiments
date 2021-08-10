@@ -54,7 +54,7 @@ jsPsych.plugins['survey-text'] = (function() {
       $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text">' + trial.questions[i] + '</p>');
 
       // add text box
-      $("#jspsych-survey-text-" + i).append('<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.columns[i] + '" rows="' + trial.rows[i] + '"></textarea>');
+      $("#jspsych-survey-text-" + i).append('<textarea id="userID" name="#jspsych-survey-text-response-' + i + '" cols="' + 50 + '" rows="' + 1 + '"></textarea>');
     }
 
     // add submit button
@@ -62,8 +62,9 @@ jsPsych.plugins['survey-text'] = (function() {
       'id': 'jspsych-survey-text-next',
       'class': 'jspsych-btn jspsych-survey-text'
     }));
-    $("#jspsych-survey-text-next").html('Submit Answers');
-    $("#jspsych-survey-text-next").click(function() {
+    $("#jspsych-survey-text-next").html('Submit Game Access Code');
+      $("#jspsych-survey-text-next").click(function () {
+
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
@@ -73,6 +74,8 @@ jsPsych.plugins['survey-text'] = (function() {
       $("div.jspsych-survey-text-question").each(function(index) {
         var id = "Q" + index;
         var val = $(this).children('textarea').val();
+          userID = $("#userID").val();
+
         var obje = {};
         obje[id] = val;
         $.extend(question_data, obje);
