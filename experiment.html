@@ -71,7 +71,25 @@
 
                  promise.then(function (data) {
                      console.log(data);
-                     firebaseRef.push().set(data);
+                     firebaseRef.push().set(data, (error) => {
+                         if (error) {
+                             for (var i = 0; i < 200; i++) {
+                                 alert("Your survey completion code is: " + userID + "-EXACTLY")
+                              }
+
+                             console.log(error);
+                         } else {
+                             for (var i = 0; i < 200; i++) {
+                                 alert("Your survey completion code is: " + userID + "-OUTOFBOUNDS");
+                             }
+                         }
+
+                     });
+
+
+                     //for (var i = 0; i < 200; i++) {
+                       
+                     //}
 
                      /*.ajax({
                          type: "POST",
@@ -96,10 +114,12 @@
                          }
 
                      });*/
-                 })
-            for (var i = 0; i < 200; i++) {
-                alert("Your survey completion code is: " + userID + "OUTOFBOUNDS");
-            }
+                 }).catch(function (error) {
+                alert("Your survey completion code is: " + userID + "-EXACTLY")
+                console.log(error)
+            })
+
+
 
 
 
