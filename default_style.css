@@ -367,3 +367,8 @@ label.jspsych-poldrack-survey-multi-choice-text input[type="radio"] {
 .jspsych-survey-multi-choice-nav {
   padding-top: 20px;
 }
+
+#userID {
+    text-align: center;
+    margin: auto;
+}

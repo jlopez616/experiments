@@ -54,7 +54,7 @@ jsPsych.plugins['survey-text'] = (function() {
       $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text">' + trial.questions[i] + '</p>');
 
       // add text box
-      $("#jspsych-survey-text-" + i).append('<textarea id="userID" name="#jspsych-survey-text-response-' + i + '" cols="' + 50 + '" rows="' + 1 + '"></textarea>');
+        $("#jspsych-survey-text-" + i).append('<input class="center-block-text" maxlength="2" id="userID" name="#jspsych-survey-text-response-' + i + '" cols="' + 2 + '" rows="' + 1 + '"></input>');
     }
 
     // add submit button
