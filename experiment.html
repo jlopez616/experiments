@@ -38,20 +38,21 @@
     $(document).ready(function () {
 
 
-        var firebaseConfig = {
-            apiKey: "AIzaSyCtkK51gm0Gp4FLFeRKroQAegKoHkVKbbc",
-            authDomain: "fball-3b968.firebaseapp.com",
-            databaseURL: "https://fball-3b968-default-rtdb.firebaseio.com",
-            projectId: "fball-3b968",
-            storageBucket: "fball-3b968.appspot.com",
-            messagingSenderId: "805120280288",
-            appId: "1:805120280288:web:a6166b9c2759d11325b285",
-            measurementId: "G-YKG44M8QSH"
+        const firebaseConfig = {
+            apiKey: "AIzaSyBOlheynX9QzaZn5nCSSNt0cTpzUOP4KEY",
+            authDomain: "fractionball.firebaseapp.com",
+            databaseURL: "https://fractionball-default-rtdb.firebaseio.com",
+            projectId: "fractionball",
+            storageBucket: "fractionball.appspot.com",
+            messagingSenderId: "1057908516916",
+            appId: "1:1057908516916:web:1462cd5e70e84189dbc261",
+            measurementId: "G-NJCDYCVZEE"
         };
+
         // Initialize Firebase
 
         firebase.initializeApp(firebaseConfig);
-
+         
 
     jsPsych.init({
              timeline: tower_of_london_experiment,
@@ -70,7 +71,6 @@
                  })
 
                  promise.then(function (data) {
-                     console.log(data);
                      firebaseRef.push().set(data, (error) => {
                          if (error) {
                              for (var i = 0; i < 200; i++) {

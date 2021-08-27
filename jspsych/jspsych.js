@@ -118,7 +118,8 @@ var jsPsych = (function() {
 
   core.finishTrial = function(data) {
     // write the data from the trial
-    data = typeof data == 'undefined' ? {} : data;
+      data = typeof data == 'undefined' ? {} : data;
+      //console.log(data);
     jsPsych.data.write(data);
 
     // get back the data with all of the defaults in
@@ -623,7 +624,7 @@ jsPsych.data = (function() {
       'trial_type': trial.type,
       'trial_index': progress.current_trial_global,
       'time_elapsed': jsPsych.totalTime(),
-      'internal_node_id': jsPsych.currentTimelineNodeID()
+        'internal_node_id': jsPsych.currentTimelineNodeID()
     };
 
     var ext_data_object = $.extend({}, data_object, trial.data, default_data, dataProperties);

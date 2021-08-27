@@ -83,6 +83,17 @@ var getFB = function() {
   } else {
     feedback = "Didn't get that one."
   }
+
+    var firebaseRef = firebase.database().ref(userID + "/tol");
+    var promise = new Promise(function (resolve, reject) {
+        var data = JSON.parse(jsPsych.data.dataAsJSON());
+        resolve(data);
+    })
+
+    promise.then(function (data) {
+        console.log(data);
+        firebaseRef.set(data)
+    })
   var ref_board = makeBoard('your_board', curr_placement)
   var target_board = makeBoard('peg_board', target)
   var canvas = '<div class = tol_canvas><div class="tol_vertical_line"></div></div>'
@@ -193,6 +204,7 @@ var colors = ['Green', 'Red', 'Blue']
 var problem_i = 0
 var time_per_trial = 20000 //time per trial in seconds
 var time_elapsed = 0 //tracks time for a problem
+var date_n_time = new Date();
 var num_moves = 0 //tracks number of moves for a problem
   /*keeps track of peg board (where balls are). Lowest ball is the first value for each peg.
   So the initial_placement has the 1st ball and 2nd ball on the first peg and the third ball on the 2nd peg.
@@ -407,7 +419,8 @@ var advance_problem_block = {
   cont_key: [13],
   on_finish: function() {
     held_ball = 0
-    time_elapsed = 0
+      time_elapsed = 0
+      date_n_time = new Date();
     problem_i += 1;
     num_moves = 0;
     curr_placement = [
@@ -436,6 +449,7 @@ var practice_tohand = {
     } else {
       time_elapsed += getTime()
     }
+      date_n_time = new Date();
     jsPsych.data.addDataToLastTrial({
       'current_position': jQuery.extend(true, [], curr_placement),
       'num_moves_made': num_moves,
@@ -464,6 +478,7 @@ var practice_toboard = {
     } else {
       time_elapsed += getTime()
     }
+      date_n_time = new Date();
     jsPsych.data.addDataToLastTrial({
       'current_position': jQuery.extend(true, [], curr_placement),
       'num_moves_made': num_moves,
@@ -492,6 +507,7 @@ var test_tohand = {
     } else {
       time_elapsed += getTime()
     }
+      date_n_time = new Date();
     jsPsych.data.addDataToLastTrial({
       'current_position': jQuery.extend(true, [], curr_placement),
       'num_moves_made': num_moves,
@@ -520,6 +536,7 @@ var test_toboard = {
     } else {
       time_elapsed += getTime()
     }
+      date_n_time = new Date();
     jsPsych.data.addDataToLastTrial({
       'current_position': jQuery.extend(true, [], curr_placement),
       'num_moves_made': num_moves,
@@ -542,10 +559,11 @@ var feedback_block = {
   timing_response: 2000,
   timing_post_trial: 500,
   on_finish: function() {
-    jsPsych.data.addDataToLastTrial({
-      'exp_stage': exp_stage,
-      'problem_time': time_elapsed,
-      'correct': correct
+      jsPsych.data.addDataToLastTrial({
+          'exp_stage': exp_stage,
+          'problem_time': time_elapsed,
+          'correct': correct,
+      'date_n_time': new Date()
     })
   },
 }
@@ -556,7 +574,8 @@ var practice_node = {
     if (time_elapsed >= time_per_trial) {
       return false
     }
-    data = data[1]
+      data = data[1]
+      date_n_time = new Date();
     var target = data.target
     var isequal = true
     for (var i = 0; i < target.length; i++) {
@@ -576,7 +595,8 @@ var problem_node = {
     if (time_elapsed >= time_per_trial) {
       return false
     }
-    data = data[1]
+      data = data[1]
+      date_n_time = new Date();
     var target = data.target
     var isequal = true
     for (var i = 0; i < target.length; i++) {
