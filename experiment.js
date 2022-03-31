@@ -84,7 +84,7 @@ var getFB = function() {
     feedback = "Didn't get that one."
   }
 
-    var firebaseRef = firebase.database().ref(userID + "/tol");
+    /*var firebaseRef = firebase.database().ref(user_id + "/tol");
     var promise = new Promise(function (resolve, reject) {
         var data = JSON.parse(jsPsych.data.dataAsJSON());
         resolve(data);
@@ -93,7 +93,7 @@ var getFB = function() {
     promise.then(function (data) {
         console.log(data);
         firebaseRef.set(data)
-    })
+    })*/
   var ref_board = makeBoard('your_board', curr_placement)
   var target_board = makeBoard('peg_board', target)
   var canvas = '<div class = tol_canvas><div class="tol_vertical_line"></div></div>'
@@ -199,6 +199,8 @@ var credit_var = true
 
 // task specific variables
 var correct = false
+//var user_id = "TESTMAR302022"
+var user_id = getQueryVariable('id')
 var exp_stage = 'practice'
 var colors = ['Green', 'Red', 'Blue']
 var problem_i = 0
@@ -295,8 +297,20 @@ var problems = [
      
 ]
 var answers = [2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5]
-//var answers = [2]
 var held_ball = 0
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
+//Taken from https://stackoverflow.com/questions/2090551/parse-query-string-in-javascript?
 
 /* ************************************ */
 /* Set up jsPsych blocks */
@@ -308,7 +322,7 @@ var post_task_block = {
    data: {
        trial_id: "post task questions"
    },
-   questions: ['<p class = center-block-text style = "font-size: 20px">Please type in your game access code and press the button when you are finished:</p>'],
+   questions: ['<p class = center-block-text style = "font-size: 20px">' + user_id + '</p>'],
    rows: [15, 15],
     columns: [60, 60]
 };
@@ -328,7 +342,7 @@ var end_block = {
 };
 
 var feedback_instruct_text =
-  'Welcome to the post-test. This post-test will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
+    'Welcome to the post-test, ' + user_id + '. This post-test will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   data: {
@@ -610,11 +624,8 @@ var problem_node = {
   timing_post_trial: 1000
 }
 
-var userID;
-
 /* create experiment definition array */
 var tower_of_london_experiment = [];
-tower_of_london_experiment.push(post_task_block);
 tower_of_london_experiment.push(instruction_node);
 tower_of_london_experiment.push(practice_node);
 tower_of_london_experiment.push(feedback_block);
@@ -635,7 +646,7 @@ var final_block = {
         exp_id: 'tower_of_london'
     },
     timing_response: 180000,
-    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>AMT Access Code ID:' + userID + '</p></div>',
+    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing</p></div>',
     timing_post_trial: 0,
 };
 //tower_of_london_experiment.push(final_block);
