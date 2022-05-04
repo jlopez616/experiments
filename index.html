@@ -61,7 +61,7 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var mobileWarning = document.querySelector("#unity-mobile-warning");
-      
+      fullscreenButton.style.visibility = "hidden"
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -92,7 +92,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           myGameInstance = unityInstance;
-          myGameInstance.SendMessage('GameHandler', 'GetQueryVariable', 'id');
+          //myGameInstance.SendMessage('GameHandler', 'GetQueryVariable', 'id');
           loadingBar.style.display = "none";
         }).catch((message) => {
           alert(message);
