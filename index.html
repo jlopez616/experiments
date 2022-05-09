@@ -92,8 +92,8 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           myGameInstance = unityInstance;
-          console.log(getQueryVariable('id'));
-          //myGameInstance.SendMessage('GameHandler', 'GetQueryVariable', 'id');
+          var playerID = getQueryVariable('id')
+          myGameInstance.SendMessage('GameHandler', 'GetQueryVariable', playerID);
           loadingBar.style.display = "none";
         }).catch((message) => {
           alert(message);
