@@ -335,14 +335,14 @@ var end_block = {
         exp_id: 'tower_of_london'
     },
   timing_response: 180000,
-  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task! Press the \"Enter\" key to continue!</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this game! Press the \"Enter\" key to continue!</p></div>',
   cont_key: [13],
   timing_post_trial: 0,
   on_finish: assessPerformance
 };
 
 var feedback_instruct_text =
-    'Welcome to the post-test, ' + user_id + '. This post-test will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
+    'Welcome to the <i>Tower of London</i>, ' + user_id + '. This game will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   data: {
