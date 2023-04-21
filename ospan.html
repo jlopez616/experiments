@@ -50,10 +50,10 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
     minSetSize = 1 // starting length of each trial (i.e., min number of letters in a trial) default 4
     maxSetSize = 1 // ending length of each trial (i.e., max number of letters in a trial) default 7
-    repSet = 3 // number of times each set size should be repeated default 3
+    repSet = 1 // number of times each set size should be repeated default 3
     randomize = true // present different set sizes in random order. if false, set sizes will be presented in ascending order
     file_name = null // file name for data file. if null, a default name consisting of the participant ID and a unique number is chosen.
-    local = true // save the data file locally.
+    local = false // save the data file locally.
                 // If this test is being run online (e.g., on MTurk), true will cause the file to be downloaded to the participant's computer.
                 // If this test is on a server, and you wish to save the data file to that server, change this to false.
                 // If changed to false, ensure that the php file (its in the directory!) and the empty "data" folder has also been appropriately uploaded to the server.
@@ -319,36 +319,51 @@ var feedback = {
    type: 'html-keyboard-response',
    stimulus: " ",
    trial_duration: 100,
-   on_finish: function (data) { //was previously jPsych.data
-                    console.log("W")
-                    firebaseRef = firebase.database().ref("OSPAN");
-                    var promise = new Promise(function(resolve, reject) {
-                        var data = JSON.parse(jsPsych.data.dataAsJSON()) ;
-                        resolve(data);
-                    })
+   on_finish: function(data) {
+     var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]).json(true);
+     console.log(data)
+     firebaseRef = firebase.database().ref("24601");
+     var promise = new Promise(function(resolve, reject) {
+                     resolve(data);
+                 })
+    promise.then(function (data) {
+        firebaseRef.push().set(data, (error) => {
+            if (error) {
+                for (var i = 0; i < 200; i++) {
+                    alert("Thanks for playing!");
+                }
 
-                    promise.then(function (data) {
-                        firebaseRef.push().set(data, (error) => {
-                            if (error) {
-                                for (var i = 0; i < 200; i++) {
-                                    alert("Thanks for playing!");
-                                  }
+                console.log(error);
+            } else {
+                for (var i = 0; i < 200; i++) {
+                    alert("Thanks for playing!");
+                }
+            }
 
-                                console.log(error);
-                            } else {
-                                for (var i = 0; i < 200; i++) {
-                                    alert("Thanks for playing!");
-                                }
-                            }
+        });
+    }).catch(function (error) {
+    alert("Big L")
+    console.log(error)
+})
+    /* if (file_name == null){
+       file_name = "WM_operation_span_"+partN+"_"+IDsub.toString()+".csv"}
+     else{
+       file_name += ".csv"
+     }
+     if (local){
+       data.localSave('csv', file_name )
+     } else {
+       saveData(file_name, data.csv());
+     }*/
+  }
 
-                        });
-                    }).catch(function (error) {
-                    alert("Your survey completion code is: OSPAN")
-                    console.log(error)
-                })
+
+
+
                 
 
-                }
+
+
   }
 
 
