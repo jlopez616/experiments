@@ -1,43 +1,41 @@
-﻿<!DOCTYPE html><html class=''>
-               <head>
-                   <meta charset='UTF-8'>
-                   <meta name="robots" content="noindex">
-                   <title>Tower of London</title>
-                   <link rel='stylesheet' type='text/css' href='jspsych.css'>
-                   <link rel='stylesheet' type='text/css' href='default_style.css'>
-                   <link rel='stylesheet' type='text/css' href='style.css'>
-                   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!DOCTYPE html><html class=''>
+<head>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <title>Flanker</title>
+    
+<link rel='stylesheet' type='text/css' href='jspsych.css'>
+<link rel='stylesheet' type='text/css' href='default_style.css'>
+<link rel='stylesheet' type='text/css' href='flanker_style.css'>
+</head>
+
+<body>
+<script src='flanker_js/jquery.min.js'></script>
+<script src="flanker_js/math.min.js"></script>
+<script src='flanker_js/jspsych/jspsych.js'></script>
+<script src='flanker_js/jspsych/plugins/jspsych-text.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-poldrack-text.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-poldrack-categorize.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-poldrack-instructions.js'></script>
+<script src='flanker_js/jspsych/plugins/jspsych-call-function.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-attention-check.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-poldrack-single-stim.js'></script>
+<script src='flanker_js/jspsych/plugins/jspsych-survey-text.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/jspsych-single-stim-button.js'></script>
+<script src='flanker_js/jspsych/poldrack_plugins/poldrack_utils.js'></script>
+<script src='flanker_experiment.js'></script>
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
                    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
 
                    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
                    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
 
-                   <script>// Your web app's Firebase configuration
-                       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-          
-                   </script>
-               </head>
 
-<body>
-</body>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.4.1/math.min.js'></script>
-<script src='jspsych/jspsych.js'></script>
-<script src='jspsych/plugins/jspsych-text.js'></script>
-<script src='jspsych/poldrack_plugins/jspsych-poldrack-text.js'></script>
-<script src='jspsych/poldrack_plugins/jspsych-poldrack-instructions.js'></script>
-<script src='jspsych/poldrack_plugins/jspsych-attention-check.js'></script>
-<script src='jspsych/poldrack_plugins/jspsych-single-stim-button.js'></script>
-<script src='jspsych/poldrack_plugins/jspsych-poldrack-single-stim.js'></script>
-<script src='jspsych/plugins/jspsych-survey-text.js'></script>
-<script src='jspsych/poldrack_plugins/poldrack_utils.js'></script>
-<script src='tol_experiment.js'></script>
 <script>
-    $(document).ready(function () {
+$( document ).ready(function() {
 
-        const firebaseConfig = {
+    const firebaseConfig = {
             apiKey: "AIzaSyDPIlw3W-ZEsJoCxKkgDH0eIA-G81BjIwI",
             authDomain: "fraction-ball-2023.firebaseapp.com",
             databaseURL: "https://fraction-ball-2023-default-rtdb.firebaseio.com",
@@ -52,15 +50,15 @@
          
 
     jsPsych.init({
-             timeline: tower_of_london_experiment,
+             timeline: flanker_experiment,
              display_element: "getDisplayElement",
              fullscreen: true,
-        on_trial_finish: function (data) {
-            addID('tower-of-london')
-        },
+             on_trial_finish: function(data){
+               addID('flanker')
+             },
 
-        on_finish: function (data) {
-                 firebaseRef = firebase.database().ref(user_id);
+             on_finish: function (data) {
+                 firebaseRef = firebase.database().ref("24601");
                  var promise = new Promise(function(resolve, reject) {
                      var data = JSON.parse(jsPsych.data.dataAsJSON()) ;
                      resolve(data);
@@ -85,12 +83,11 @@
                 alert("Your survey completion code is: " + user_id + "-EXACTLY")
                 console.log(error)
             })
-            
-
-             }
+        }
 
       });
+
 });
 </script>
-
+</body>
 </html>
