@@ -2,7 +2,6 @@
   <head>
     <title>OSPAN</title>
     <script src="jspsych-6.0.4/jspsych.js"></script>
-    <script src="config.js"></script>
     <script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.0.4/plugins/jspsych-html-button-operationspan.js"></script>
     <script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
@@ -23,7 +22,27 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
 
         // Initialize Firebase
+       
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPIlw3W-ZEsJoCxKkgDH0eIA-G81BjIwI",
+            authDomain: "fraction-ball-2023.firebaseapp.com",
+            databaseURL: "https://fraction-ball-2023-default-rtdb.firebaseio.com",
+            projectId: "fraction-ball-2023",
+            storageBucket: "fraction-ball-2023.appspot.com",
+            messagingSenderId: "161791568788",
+            appId: "1:161791568788:web:589e0b8dc6a4ab75c93d81"
+        }
 
+       /* const firebaseConfig = {
+          apiKey: process.env.APIKEY,
+          authDomain: process.env.AUTHDOMAIN,
+          databaseURL: process.env.DATABASEURL,
+          projectId: process.env.PROJECTID,
+          storageBucket: process.env.STORAGEBUCKET,
+          messagingSenderId: process.env.MESSAGINGSENDERID,
+          appId: process.env.APPID,
+      }
+*/
         firebase.initializeApp(firebaseConfig);
 
 
@@ -115,8 +134,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 var instructions = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;"><b>INSTRUCTIONS</b><br><br><br>This is the operation span task. <br><br>This task has two parts: <br>(1) Letter memorization <br>(2) Math problem solving<br><br><br></div>'
-      pageTwo = '<div style="font-size:20px;">We will first practice LETTER MEMORIZATION.<br><br>A sequence of letters will appear on the screen one at a time (around 3 to 6 in a trial).<br>Try to remember each letter in the order presented.<br><br>After letter presentation, you will see a screen listing 12 possible letters.<br>Your task is to select each letter that was presented in its correct presentation order. <br><br>Use the mouse to select the appropriate letters <br>If you make a mistake use the provided "Backspace" button to clear your last response. <br><br>Remember, it is important that you select the letters in the order that you saw them.<br> So if you forget one of the letters, guess the best you can for that one, and select the rest in their correct order.<br><br>Press "Next" for practice trials.<br><br></div>'
+      pageOne = '<div style="font-size:20px;"><b>In this game you have three challenges:</b><br><br>Challenge 1: Memorize ALL the letters<br>Challenge 2: Memorize the ORDER too!<br>Challenge 3: Solve math problems<br><br><br>The hardest part? <b>You have to do it all in your head.</b></div>'
+      pageTwo = '<div style="font-size:20px;">Ready to practice with letters?<br><b>Pay attention, you have to do it all in your head!</b></div>'
       return [pageOne, pageTwo]//, pageThree]
     },
     allow_backward: false,
@@ -127,8 +146,10 @@ var instructions = {
   var instructions2 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">You will next practice MATH PROBLEM SOLVING.<br><br>A simple math equation will appear on the screen, like this:<br>3 + 4 = 7<br>Your task is to solve the math problem and determine if the answer provided to it is correct.<br><br>For example, if you see the following problem:<br>2 + 3 = 5<br>you should click the <b>"True"</b> button because 2 and 3 added together equals 5.<br><br>If you see the following problem:<br>2 + 3 = 6<br>you should click the <b>"False"</b> button because 2 and 3 added together DOES NOT equal 6.<br><br>Please ask the Research Assistant if you have not understood the task.<br>Press "Next" to start practicing math problem solving.<br><br></div>'
-      return [pageOne]
+      pageOne = '<div style="font-size:20px;">Great job with the letters! Ready for Challenge 3 with math?</div>'
+      pageTwo = '<div style="font-size:20px;"><b>In this game you have three challenges:</b><br><br>Challenge 1: Memorize ALL the letters<br>Challenge 2: Memorize the ORDER too!<br>Challenge 3: Solve math problems<br><br><br>The hardest part? <b>You have to do it all in your head.</b></div>'
+
+      return [pageOne, pageTwo]
     },
     allow_backward: false,
     button_label_next: "Next",
@@ -393,7 +414,7 @@ var feedback = {
   timeline = [p_details]
   timeline.push({
     type: 'fullscreen',
-    fullscreen_mode: true
+    fullscreen_mode: false,
   });
 
   timeline = timeline.concat([instructions, lettersDemo, instructions2, loadDemo, instructions3, fullDemo, instructions4, test_procedure])

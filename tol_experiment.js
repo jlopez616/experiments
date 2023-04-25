@@ -83,17 +83,7 @@ var getFB = function() {
   } else {
     feedback = "Didn't get that one."
   }
-
-    /*var firebaseRef = firebase.database().ref(user_id + "/tol");
-    var promise = new Promise(function (resolve, reject) {
-        var data = JSON.parse(jsPsych.data.dataAsJSON());
-        resolve(data);
-    })
-
-    promise.then(function (data) {
-        console.log(data);
-        firebaseRef.set(data)
-    })*/
+  
   var ref_board = makeBoard('your_board', curr_placement)
   var target_board = makeBoard('peg_board', target)
   var canvas = '<div class = tol_canvas><div class="tol_vertical_line"></div></div>'
@@ -113,7 +103,7 @@ var getTime = function() {
 }
 
 var getText = function() {
-  return '<div class = centerbox><p class = center-block-text>About to start problem ' + (problem_i + 2) +
+  return '<div class = centerbox><p class = center-block-text>Ready to play round' + (problem_i + 2) + "?" +
     '. Press <strong>enter</strong> to begin.</p></div>'
 }
 
@@ -342,7 +332,7 @@ var end_block = {
 };
 
 var feedback_instruct_text =
-    'Welcome to the <i>Tower of London</i>, ' + user_id + '. This game will take about 5 minutes, and should be completed immediately after you play <i>Fraction Ball: Exactly</i>. Press <strong>enter</strong> to begin.'
+    'Ready to play <i>Tower of London</i>, ' + user_id + '? Press "Enter" on your keyboard to begin!'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   data: {
@@ -361,15 +351,15 @@ var instructions_block = {
     trial_id: "instruction"
   },
   pages: [
-    '<div class = tol_topbox><p class = block-text>During this task, two boards will be presented at a time. The boards will be of colored balls arranged on pegs like this:</p></div>' +
+    '<div class = tol_topbox><p class = block-text>In this game, we will show you two boards with colored balls that look like this:</p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs are going through the holes. Notice that the first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball.</p></div>',
-    '<div class = tol_topbox><p class = block-text>Your task will be to make the arrangements of balls in your board look like the arrangements of balls in the target board in the fewest possible moves.</p></div>' +
+    '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball.</p></div>',
+    '<div class = tol_topbox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves</b></p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>The balls in the target board are fixed in place, but the balls in your board are movable. You have to move them to make your board look like the target board. Sometime you will have to move a ball to a different peg in order to get to the ball below it. During this task it is important that you remember, you want the <strong>fewest possible moves</strong> that are required to make your board look like the target board. You will have 20 seconds to make your decision.</p></div>',
-    '<div class = tol_topbox><p class = block-text>Here is an example. Notice that the balls in your board are in a different arrangement than in the target board. If we move the red ball from the first peg in your board to the third peg then it would look like the target board.</p></div>' +
+    '<div class = tol_bottombox><p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> During this task it is important that you remember, you want the <strong>fewest possible moves</strong> that are required to make your board look like the target board. <br> You will have <strong>20 seconds</strong> to play each round.<br><br></p></div>',
+    '<div class = tol_topbox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p></div>' +
     ref_board + makeBoard('peg_board', example_problem2) + '<div class = tol_bottombox></div>',
-    "<div class = centerbox><p class = block-text>During the test you will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you successfully make your board look like the target board, the trial will end and you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can learn the controls.</p></div>"
+    "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice.</p></div>"
   ],
   allow_keys: false,
   show_clickable_nav: true,
@@ -405,8 +395,8 @@ var start_test_block = {
     trial_id: "instruction"
   },
   timing_response: 180000,
-  text: '<div class = centerbox><p class = block-text>We will now start Problem 1. There will be ' +
-    problems.length + ' problems to complete. Press <strong>enter</strong> to begin.</p></div>',
+  text: '<div class = centerbox><p class = block-text>Ready to play? There will be ' +
+    problems.length + ' rounds to complete. Press <strong>enter</strong> to begin.</p></div>',
   cont_key: [13],
   timing_post_trial: 1000,
   on_finish: function() {
