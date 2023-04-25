@@ -354,12 +354,13 @@ var instructions_block = {
     '<div class = tol_topbox><p class = block-text>In this game, we will show you two boards with colored balls that look like this:</p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
     '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball.</p></div>',
-    '<div class = tol_topbox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves</b></p></div>' +
+    '<div class = tol_topbox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves.</b></p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
     '<div class = tol_bottombox><p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> During this task it is important that you remember, you want the <strong>fewest possible moves</strong> that are required to make your board look like the target board. <br> You will have <strong>20 seconds</strong> to play each round.<br><br></p></div>',
     '<div class = tol_topbox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p></div>' +
     ref_board + makeBoard('peg_board', example_problem2) + '<div class = tol_bottombox></div>',
-    "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice.</p></div>"
+    "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice.</p></div>",
+    "<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
   ],
   allow_keys: false,
   show_clickable_nav: true,

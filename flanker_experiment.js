@@ -1,6 +1,20 @@
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
+function getQueryVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split('&');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split('=');
+		if (decodeURIComponent(pair[0]) == variable) {
+			return decodeURIComponent(pair[1]);
+		}
+	}
+	console.log('Query variable %s not found', variable);
+  }
+  
+var user_id = getQueryVariable('id')
+
 function evalAttentionChecks() {
 	var check_percent = 1
 	if (run_attention_checks) {
@@ -58,40 +72,63 @@ var correct_responses = jsPsych.randomization.repeat([
 	["left arrow", 37],
 	["right arrow", 39]
 ], 1)
+
+var test_controls = [{
+		image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img></div></div>',
+		data: {
+			correct_response: 39,
+			condition: 'incompatible',
+			trial_id: 'stim'
+		}
+	}, {
+		image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img></div></div>',
+		data: {
+			correct_response: 37,
+			condition: 'incompatible',
+			trial_id: 'stim'
+		}
+}]
+
 var test_stimuli = [{
-	image: '<div class = centerbox><div class = flanker-text>ffhff</div></div>',
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
-		correct_response: 72,
+		correct_response: 39,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>hhfhh</div></div>',
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
-		correct_response: 70,
+		correct_response: 37,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>hhhhh</div></div>',
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
-		correct_response: 72,
+		correct_response: 39,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>fffff</div></div>',
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
-		correct_response: 70,
+		correct_response: 37,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }];
 
-practice_len = 12 //5
-exp_len = 100 //5
+practice_len = 5 //5
+exp_len = 12 //5
+
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);
+
+var test_controls_array = [];
+for (i = 0; i < practice_trials.data.length; i++) {
+	test_controls_array.push(practice_trials.data[i].correct_response)
+}
 
 var practice_response_array = [];
 for (i = 0; i < practice_trials.data.length; i++) {
@@ -138,7 +175,7 @@ var post_task_block = {
 };
 /* define static blocks */
 var feedback_instruct_text =
-	'Welcome to the experiment. Press <strong>enter</strong> to begin.'
+	'Ready to play, ' + user_id + '? Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
 	type: 'poldrack-text',
 	cont_key: [13],
@@ -153,7 +190,8 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this experiment you will see five letters on the string composed of f's and h's. For instance, you might see 'fffff' or 'hhfhh'. Your task is to respond by pressing the key corresponding to the <strong>middle</strong> letter. So if you see 'ffhff' you would press the 'h' key.</p><p class = block-text>After each respond you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
+		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
+		"<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
 	],
 	allow_keys: false,
 	data: {
@@ -234,7 +272,7 @@ for (i = 0; i < practice_len; i++) {
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
 		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster</div></div>',
-		choices: [70, 72],
+		choices: [37, 39],
 		data: practice_trials.data[i],
 		timing_feedback_duration: 1000,
 		show_stim_with_feedback: false,
@@ -262,7 +300,7 @@ for (i = 0; i < exp_len; i++) {
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
 		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster!</div></div>',
-		choices: [70, 72],
+		choices: [37, 39],
 		data: test_trials.data[i],
 		timing_feedback_duration: 1000,
 		timing_response: 1500,
@@ -277,5 +315,4 @@ for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(test_block)
 }
 flanker_experiment.push(attention_node)
-flanker_experiment.push(post_task_block)
 flanker_experiment.push(end_block)
