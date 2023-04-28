@@ -12,7 +12,7 @@ function getQueryVariable(variable) {
 	}
 	console.log('Query variable %s not found', variable);
   }
-  
+
 var user_id = getQueryVariable('id')
 
 function evalAttentionChecks() {
@@ -119,8 +119,8 @@ var test_stimuli = [{
 	}
 }];
 
-practice_len = 5 //5
-exp_len = 12 //5
+practice_len = 5 //5 minutes
+exp_len = 12 //5  //should be both congruent and incogruent trials
 
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);

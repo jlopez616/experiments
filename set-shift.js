@@ -158,7 +158,7 @@ var post_task_block = {
 
 /* define static blocks */
 var feedback_instruct_text =
-	'Welcome to the experiment. This experiment will last around 10 minutes. Press <strong>enter</strong> to begin.'
+	'Ready to play? Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
 	type: 'poldrack-text',
 	data: {
@@ -176,10 +176,11 @@ var instructions_block = {
 		trial_id: 'instruction'
 	},
 	pages: [
-		'<div class = centerbox><p class = "block-text">In this task you will see two patterns placed in two of four boxes on the screen (shown on the next screen). One of the patterns is correct. You must select the one you think is correct by pressing the arrow key corresponding to the correct box (left, right, up or down).</p><p class = "block-text">There is a rule you can follow to make sure you make the correct choice each time. The computer will be keeping track of how well you arc doing and when it is clear that you know the rule then the computer will change, but this not happen very often. To begin with, there is nothing on the screen to tell you which of the two patterns is correct, so your first choice will be a simple guess. However, the computer will give a message after each attempt to tell you whether you are right or wrong. </p></div>',
+		'<div class = centerbox><p class = "block-text">In this game, you will see two shapes inside four boxes. One of the shapes is correct . You have to guess which one is correct by pressing the arrow key pointing to the box.</p>'+
+		'<p class = "block-text">We will tell you if your guess was correct or incorrect each time you guess. <strong>Look for a pattern to guess the next correct answer</strong></p>'+
+		'<p class = "block-text">At some point, the pattern to decide which one is correct will change. You have to look for a new pattern.</p></div>',
 		instruction_stim +
-		'<div class = betweenStimBox><div class = "center-text">An example trial.</div></div>',
-		'<div class = centerbox><p class = "block-text">Once again, you will see two patterns similar to what you saw on the last page. One of the patterns is correct. You select a pattern by pressing the corresponding arrow key. After you respond you will get feedback about whether you were correct. After the computer knows that you have learned the rule, the rule will change. </p></div>'
+		'<div class = betweenStimBox><div class = "center-text">Press "End Instructions" when you\'re ready to play.</div></div>'
 	],
 	allow_keys: false,
 	show_clickable_nav: true,
@@ -382,5 +383,4 @@ for (b = 0; b < blocks.length; b++) {
 	}
 }
 
-dimensional_set_shifting_experiment.push(post_task_block)
 dimensional_set_shifting_experiment.push(end_block)
