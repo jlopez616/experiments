@@ -272,7 +272,7 @@ var start_reverse_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
+	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p>>p>Press <b>'enter'</b> to continue</p></div>",
 	cont_key: [13],
 	timing_post_trial: 1000
 };
