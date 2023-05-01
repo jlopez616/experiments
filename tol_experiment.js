@@ -103,8 +103,8 @@ var getTime = function() {
 }
 
 var getText = function() {
-  return '<div class = centerbox><p class = center-block-text>Ready to play round' + (problem_i + 2) + "?" +
-    '. Press <strong>enter</strong> to begin.</p></div>'
+  return '<div class = centerbox><p class = center-block-text>Ready to play round ' + (problem_i + 2) + "?" +
+    ' Press <strong>enter</strong> to begin.</p></div>'
 }
 
 var pegClick = function(peg_id) {

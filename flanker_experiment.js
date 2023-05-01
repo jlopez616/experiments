@@ -119,16 +119,43 @@ var test_stimuli = [{
 	}
 }];
 
-practice_len = 5 //5 minutes
-exp_len = 12 //5  //should be both congruent and incogruent trials
+var reverse_test_stimuli = [{
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	data: {
+		correct_response: 37,
+		condition: 'incompatible',
+		trial_id: 'stim'
+	}
+}, {
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	data: {
+		correct_response: 39,
+		condition: 'incompatible',
+		trial_id: 'stim'
+	}
+}, {
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	data: {
+		correct_response: 39,
+		condition: 'compatible',
+		trial_id: 'stim'
+	}
+}, {
+	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	data: {
+		correct_response: 37,
+		condition: 'compatible',
+		trial_id: 'stim'
+	}
+}];
+
+practice_len = 5 //5 minutes //12
+exp_len = 5 //5  //should be both congruent and incogruent trials //12
+reverse_exp_len = 5 //12
 
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);
-
-var test_controls_array = [];
-for (i = 0; i < practice_trials.data.length; i++) {
-	test_controls_array.push(practice_trials.data[i].correct_response)
-}
+var reverse_test_trials = jsPsych.randomization.repeat(reverse_test_stimuli, reverse_exp_len / 4, true);
 
 var practice_response_array = [];
 for (i = 0; i < practice_trials.data.length; i++) {
@@ -138,6 +165,11 @@ for (i = 0; i < practice_trials.data.length; i++) {
 var test_response_array = [];
 for (i = 0; i < test_trials.data.length; i++) {
 	test_response_array.push(test_trials.data[i].correct_response)
+}
+
+var reverse_test_response_array = [];
+for (i = 0; i < reverse_test_trials.data.length; i++) {
+	reverse_test_response_array.push(reverse_test_trials.data[i].correct_response)
 }
 
 
@@ -190,7 +222,7 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
+		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
 		"<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
 	],
 	allow_keys: false,
@@ -229,9 +261,20 @@ var end_block = {
 		trial_id: "end",
 		exp_id: 'flanker'
 	},
-	text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Thanks for playing!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
 	cont_key: [13],
 	timing_post_trial: 0
+};
+
+var start_reverse_test_block = {
+	type: 'poldrack-text',
+	data: {
+		trial_id: "test_intro"
+	},
+	timing_response: 180000,
+	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
+	cont_key: [13],
+	timing_post_trial: 1000
 };
 
 var start_test_block = {
@@ -240,7 +283,7 @@ var start_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: '<div class = centerbox><p class = center-block-text>Done with practice. Starting test.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Ready to play the real game?</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
 	cont_key: [13],
 	timing_post_trial: 1000
 };
@@ -315,4 +358,31 @@ for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(test_block)
 }
 flanker_experiment.push(attention_node)
+flanker_experiment.push(start_reverse_test_block)
+
+/* define reverse test block */
+for (i = 0; i < exp_len; i++) {
+	flanker_experiment.push(fixation_block)
+	var reverse_test_block = {
+		type: 'poldrack-categorize',
+		stimulus: reverse_test_trials.image[i],
+		is_html: true,
+		key_answer: reverse_test_response_array[i],
+		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster!</div></div>',
+		choices: [37, 39],
+		data: test_trials.data[i],
+		timing_feedback_duration: 1000,
+		timing_response: 1500,
+		show_stim_with_feedback: false,
+		timing_post_trial: 500,
+		on_finish: function() {
+			jsPsych.data.addDataToLastTrial({
+				exp_stage: "test"
+			})
+		}
+	}
+	flanker_experiment.push(reverse_test_block)
+}
 flanker_experiment.push(end_block)
