@@ -90,28 +90,28 @@ var test_controls = [{
 }]
 
 var test_stimuli = [{
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	image: '<div id="prob3" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 39,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	image: '<div id="prob4" class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
 		correct_response: 37,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	image: '<div id="prob2" class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
 		correct_response: 39,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	image: '<div id="prob1" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 37,
 		condition: 'compatible',
@@ -120,28 +120,28 @@ var test_stimuli = [{
 }];
 
 var reverse_test_stimuli = [{
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	image: '<div id="prob3" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 37,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	image: '<div id="prob4" class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
 		correct_response: 39,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
+	image: '<div id="prob2" class = centerbox><div class = flanker-text><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish2.png"></img></div></div>',
 	data: {
 		correct_response: 39,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
+	image: '<div id="prob1" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 37,
 		condition: 'compatible',
@@ -149,13 +149,292 @@ var reverse_test_stimuli = [{
 	}
 }];
 
-practice_len = 5 //5 minutes //12
-exp_len = 5 //5  //should be both congruent and incogruent trials //12
-reverse_exp_len = 5 //12
 
-var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
-var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);
-var reverse_test_trials = jsPsych.randomization.repeat(reverse_test_stimuli, reverse_exp_len / 4, true);
+practice_len = 4 //5 minutes //12
+exp_len = 5//5  60//should be both congruent and incogruent trials //12
+reverse_exp_len = 5 //60
+
+var new_practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
+
+var practice_trials = {
+image: [
+
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+],
+data: [
+	{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+	{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+	{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+	{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+]
+}
+
+var test_trials = {
+	image: [
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>", 
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		/*
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>"
+	*/
+	],
+	data: [
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+/*
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'}, 
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+*/
+	]
+	}
+
+var reverse_test_trials = {
+	image: [
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+/*
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
+"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>"
+	*/
+],
+	data: [
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'}, 
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+/*
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 37, condition: 'compatible', trial_id: 'stim'},
+{correct_response: 39, condition: 'incompatible', trial_id: 'stim'}
+*/
+]
+}
+	
+	
 
 var practice_response_array = [];
 for (i = 0; i < practice_trials.data.length; i++) {
@@ -272,7 +551,7 @@ var start_reverse_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p>>p>Press <b>'enter'</b> to continue</p></div>",
+	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p><p>Press <b>'enter'</b> to continue</p></div>",
 	cont_key: [13],
 	timing_post_trial: 1000
 };

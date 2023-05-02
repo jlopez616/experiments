@@ -75,13 +75,189 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
   var possibleLetters = ["F","H","J","K","L","N","P","Q","R","S","T","V"]
 
-  var setSizes = []    // different set sizes
-  for (var i = minSetSize; i<= maxSetSize; i++){
+  var setSizes = [4, 6, 5, 3, 6]    // different set sizes
+  /*for (var i = minSetSize; i<= maxSetSize; i++){
     for (var r = 1; r<= repSet; r++){
       setSizes.push(i)
     }
-  }
+  }*/
   //console.log(setSizes)
+
+  var hardLetters = [["H", "K", "T"], ["S", "N", "R", "F"], ["Q", "P", "K"],["T", "R", "S", "J" ], ["P", "S", "H", "Q", "L", "T"],["Q", "R", "F", "P", "H"],["K", "S", "P"], ["R", "Q", "T", "P", "H", "L"]]
+  var ospanLetters = [["J", "L", "V"], ["T", "P", "Q", "H"], ["R", "Q", "L"],["V", "S", "T", "K" ], ["Q", "T", "J", "R", "N", "V"],["R", "S", "H", "Q", "J"],["L", "T", "Q"], ["S", "V", "S", "P", "Q", "L"]]
+  
+  var ROSPANkeyProblems = [false, //PL1
+  true, //PL2
+  false, //PL3
+  true, //PL4
+  true, //PL5
+  false, //P1
+  false, //P2
+  true, //P3
+  false,  //R1 1
+  true,  //R1 2
+  true,  //R1 3
+  false,  //R1 4
+  true, //R2 1
+  true,  //R2 2
+  false, //R2 3
+  false, //R2 4
+  true, //R2 5
+  false, //R2 6
+  true, //R3 1
+  true, //R3 2
+  false, //R3 3
+  false, //R3 4
+  false, //R3 5
+  false, //R4 1
+  true,  //R4 2
+  false, //R4 3
+  false, //R5 1
+  true, //R5 2
+  true, //R5 3
+  true, //R5 4
+  false,  //R5 5
+  true,  //R5 6
+];
+/*
+  false, 
+  true, 
+  false, 
+  true,
+  true, 
+  true, 
+  false,
+  false, 
+  true, 
+  true, 
+  false, 
+  true];*/
+
+  var OSPANkeyProblems = [
+  true,  //R1 1
+  false,  //R1 2
+  false,  //R1 3
+  true,  //R1 4
+  true, //R2 1
+  false,  //R2 2
+  false, //R2 3
+  true, //R2 4
+  true, //R2 5
+  false, //R2 6
+  false, //R3 1
+  false, //R3 2
+  false, //R3 3
+  true, //R3 4
+  true, //R3 5
+  false, //R4 1
+  true,  //R4 2
+  false, //R4 3
+  false, //R5 1
+  true, //R5 2
+  true, //R5 3
+  false, //R5 4
+  false,  //R5 5
+  true,  //R5 6
+];
+
+  //taken from ROSPAN
+  var mathProblems= [  ["4.5", "3/8"], //PL1
+  ["1/4", "2/4", "3/4"], //LP2
+  ["2.33", "23/100"], //PL3
+  ["4/4", "2/4", "6/4"], //PL4
+  ["1/4", "3/4", "1"], //PL5
+  ["1/4", "0.14"], //PL6
+  ["2/4", "0.24"], //P1
+  ["0.75",  "3/4"],//P2
+  ["1/4", "3/4", "3/8"], //R1 1
+  ["1", "4/4"], //R1 2
+  ["1/5", "3/10", "1/2"], //R1 3
+  ["0.66", "0/5"], //R1 4
+  ["1/4", "1/2", "3/4"], //R2 1
+  ["0.4", "4/10"], //R2 2
+  ["2/3", "1/3", "3/6"], //R2 3
+  ["5/3", "5/3", "5/3"], //R2 4
+  ["2/10", "0.2"], //R2 5
+  ["4.5", "4/5"], //R2 6
+  ["4/10", "5/10", "9/10"], //R3 1
+  ["0.66", "6/9"], //R3 2
+  ["8/3", "1/3", "9/6"],//R3 3
+  ["1/2", "1/2", "2/4"],//R3 4
+  ["2.33", "23/3"],//R3 5
+  ["0.25", "25/50"], //R4 1
+  ["3/5", "0.6"], //R4 2
+["0.30", "3/10"], //R4 3
+["1/5", "2/5", "3/10"], //R5 1
+["0.5", "1/2"], //R5 2
+["2.50", "5/2"], //R5 3
+["4/10", "0.4"], //R5 4
+["1/5", "1/5", "2/10"], //R5 5
+["0.44", "4/9"], //R5 6
+
+/*//New Problems
+["1/4", "3/4", "1/2"],
+["3/5", "2/5", "1"],
+["1/3", "0.3"],
+["2/8", "4/8", "6/8"]
+["1/8", "0.125"],
+["1/10", "2/10", "3/10"]
+["2/3", "1/6", "3/6"],
+
+["2/3", "3/4", "5/7"],
+["0.25", "1/4", "2/4"],
+["3/5","0.6"],
+["1/3", "2/3", "3/6"],
+["0.6","6/10"]*/
+
+]
+
+var ospanProblems= [
+  "6+1-3=4".split(""), //R1 1 
+  "8-3+4=8".split(""), //R1 2
+  "9+5-4=10".split(""), //R1 3
+  "9-3+2=4".split(""), //R1 4
+
+  "2-2+7=7".split(""), //R2 1
+  "3+1+2=8".split(""), //R2 2
+  "7+5-6=7".split(""), //R2 3
+  "8+8-1=15".split(""), //R2 4
+  "5-7+9=7".split(""), //R2 5
+  "6-4+5=6".split(""), //R2 6
+
+  "1+4+4=6".split(""), //R3 1
+  "7-2+7=16".split(""), //R3 2
+  "6-2+6=11".split(""), //R3 3
+  "4+6-9=1".split(""),//R3 4
+  "3+9-8=4".split(""),//R3 5
+
+  "8-2-2=8".split(""), //R4 1
+  "9-1+8=16".split(""), //R4 2
+  "6+8-3=10".split(""),//R4 3
+
+  "2-1+5=8".split(""), //R5 1
+  "3+8+1=12".split(""), //R5 2
+  "1+5+4=10".split(""), //R5 3
+  "4-9+5=10".split(""), //R5 4
+  "9-3-6=12".split(""), //R5 5
+  "1+7-6=2".split("") //R5 6
+
+/*//New Problems
+["1/4", "3/4", "1/2"],
+["3/5", "2/5", "1"],
+["1/3", "0.3"],
+["2/8", "4/8", "6/8"]
+["1/8", "0.125"],
+["1/10", "2/10", "3/10"]
+["2/3", "1/6", "3/6"],
+
+["2/3", "3/4", "5/7"],
+["0.25", "1/4", "2/4"],
+["3/5","0.6"],
+["1/3", "2/3", "3/6"],
+["0.6","6/10"]*/
+
+]
+
 
   var nTrials = setSizes.length // number of trials
 
@@ -104,6 +280,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
   var nLetterRecalled = 0 // feedback
   var nMathAcc = 0 // feedback
+  var nMath = 0
+  var nOSPANMath = 0;
 
   var cogloadf = function(correct){  // generates math questions
     var possibleOperations = [" + "]
@@ -131,6 +309,40 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     }
     return '<div style="font-size:46px;">'+num1+operation+num2+' = '+ans+'<br><br><br><br></div>'
   }
+
+
+  var rospan_cogloadf = function(correct) {
+    var problem = mathProblems[nMath];
+  //var ans;
+    if (problem.length === 2) {
+      // ans = eval(problem[0] + " = " + problem[1]);
+      // ans = Math.round(ans * 100) / 100; // round to two decimal places
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " = " + problem[1] + "<br><br><br><br></div>";
+    } else if (problem.length === 3) {
+      // ans = eval(problem[0] + "+" + problem[1] + "=" + problem[2]);
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[1] + " = " + problem[2] + "<br><br><br><br></div>";
+    }
+};
+
+var ospan_cogloadf = function(correct) {
+    var problem = ospanProblems[nOSPANMath];
+
+    if (problem[1] == "+" && problem[4] == "+") {
+      nOSPANMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] +  "<br><br><br><br></div>";
+    } else if (problem[1] == "+" && problem[4] == "-") {
+      nOSPANMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    } else if (problem[1] == "-" && problem[4] == "-") {
+      nOSPANMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " - " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    } else if (problem[1] == "-" && problem[4] == "+") {
+      nOSPANMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    }
+};
 
 var instructions = {
     type: 'instructions',
@@ -191,7 +403,18 @@ var instructions = {
   var instructions5 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start main game.<br><br></div>'
+      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start the main game.<br><br></div>'
+      return [pageOne]
+    },
+    allow_backward: false,
+    button_label_next: "Next",
+    show_clickable_nav: true
+  }
+
+  var instructions6 = {
+    type: 'instructions',
+    pages: function(){
+      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start the ROSPAN game.<br><br></div>'
       return [pageOne]
     },
     allow_backward: false,
@@ -242,6 +465,51 @@ var cog_load = {
     }
   }
 }
+
+var rospan_cog_load = {
+  type: 'html-button-operationspan',
+  equation_accuracy: function(){
+      // eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
+      // return eqCorrect
+      eqCorrect = ROSPANkeyProblems[nMath];
+        return eqCorrect;
+  },
+  stimulus: function(){
+    return cogloadf(eqCorrect)
+  },
+ 
+  trial_duration:6000,
+  choices: ["True", "False"],
+  on_finish: function(){
+    var acc = jsPsych.data.get().last(1).values()[0].accuracy;
+    if (acc==1){
+      nMathAcc+=1
+    }
+  }
+}
+
+var ospan_cog_load = {
+  type: 'html-button-operationspan',
+  equation_accuracy: function(){
+      // eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
+      // return eqCorrect
+      eqCorrect = ospanProblems[nOSPANMath];
+        return eqCorrect;
+  },
+  stimulus: function(){
+    return cogloadf(eqCorrect)
+  },
+ 
+  trial_duration:6000,
+  choices: ["True", "False"],
+  on_finish: function(){
+    var acc = jsPsych.data.get().last(1).values()[0].accuracy;
+    if (acc==1){
+      nMathAcc+=1
+    }
+  }
+}
+
 
 var test_stimuli = {
   type: 'html-keyboard-response',
@@ -426,10 +694,29 @@ var feedback = {
       
   }
 
-
   var test_stack = {
     timeline: [test_stimuli, cog_load, end_test_stimuli],
     repetitions: 10
+  }
+
+  var ospan_stack = {
+    timeline: [test_stimuli, ospan_cog_load, end_test_stimuli],
+    repetitions: 10
+  }
+
+  var ospan_procedure = {
+    timeline: [ospan_stack, recall, feedback],
+    repetitions: nTrials - 1
+  }
+
+  var rospan_stack = {
+    timeline: [test_stimuli, rospan_cog_load, end_test_stimuli],
+    repetitions: 10
+  }
+
+  var rospan_procedure = {
+    timeline: [rospan_stack, recall, feedback],
+    repetitions: nTrials - 1
   }
 
   var test_procedure = {
@@ -473,7 +760,7 @@ var feedback = {
     fullscreen_mode: false,
   });
 
-  timeline = timeline.concat([instructions, PLV, instructions2, lettersDemo, instructions3, loadDemo, instructions4, fullDemo, instructions5, test_procedure])
+  timeline = timeline.concat([instructions, PLV, instructions2, lettersDemo, /*instructions3, loadDemo, instructions4, fullDemo, instructions5, ospan_procedure, */instructions6, rospan_procedure])
   timeline.push({
   type: 'fullscreen',
   fullscreen_mode: false
