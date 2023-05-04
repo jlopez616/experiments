@@ -486,7 +486,7 @@ var post_task_block = {
 };
 /* define static blocks */
 var feedback_instruct_text =
-	'Ready to play, ' + user_id + '? Press <strong>enter</strong> to begin.'
+	'Ready to play, ' + user_id + '? Press <strong>enter</strong> to begin. <br> ¿Listo para jugar, ' + user_id + '? Oprime "Enter" para empezar.'
 var feedback_instruct_block = {
 	type: 'poldrack-text',
 	cont_key: [13],
@@ -502,7 +502,7 @@ var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
 		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
-		"<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
+		"<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><p>Aquí está un video de un ejemplo:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
 	],
 	allow_keys: false,
 	data: {
@@ -540,7 +540,7 @@ var end_block = {
 		trial_id: "end",
 		exp_id: 'flanker'
 	},
-	text: '<div class = centerbox><p class = center-block-text>Thanks for playing!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Thanks for playing! <br> ¡Gracias por jugar! </p><p class = center-block-text>Press <strong>enter</strong> to continue. <br> Oprime <strong>"Enter"</strong> para continuar.</p></p></div>',
 	cont_key: [13],
 	timing_post_trial: 0
 };
@@ -562,7 +562,7 @@ var start_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: '<div class = centerbox><p class = center-block-text>Ready to play the real game?</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Ready to play the real game? ¿Listo para jugar el juego verdadero? </p><p class = center-block-text>Press <strong>"Enter"</strong> to begin.</p><p class = center-block-text>Oprima <strong>"Enter"</strong> para empezar</div>',
 	cont_key: [13],
 	timing_post_trial: 1000
 };
@@ -591,9 +591,9 @@ for (i = 0; i < practice_len; i++) {
 		stimulus: practice_trials.image[i],
 		is_html: true,
 		key_answer: practice_response_array[i],
-		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
-		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster</div></div>',
+		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct <br> Correcto</div></div>',
+		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect <br> Incorrecto</div></div>',
+		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster<br>Responde más rápido</div></div>',
 		choices: [37, 39],
 		data: practice_trials.data[i],
 		timing_feedback_duration: 1000,
@@ -619,9 +619,9 @@ for (i = 0; i < exp_len; i++) {
 		stimulus: test_trials.image[i],
 		is_html: true,
 		key_answer: test_response_array[i],
-		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
-		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster!</div></div>',
+		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct <br> Correcto</div></div>',
+		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect <br> Incorrecto</div></div>',
+		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster<br>Responde más rápido</div></div>',
 		choices: [37, 39],
 		data: test_trials.data[i],
 		timing_feedback_duration: 1000,
@@ -647,9 +647,9 @@ for (i = 0; i < exp_len; i++) {
 		stimulus: reverse_test_trials.image[i],
 		is_html: true,
 		key_answer: reverse_test_response_array[i],
-		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
-		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster!</div></div>',
+		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct <br> Correcto</div></div>',
+		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect <br> Incorrecto</div></div>',
+		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster<br>Responde más rápido</div></div>',
 		choices: [37, 39],
 		data: test_trials.data[i],
 		timing_feedback_duration: 1000,
