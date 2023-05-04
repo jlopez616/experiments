@@ -179,7 +179,6 @@ var test_trials = {
 		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
 		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
-		/*
 		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 		"<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 		"<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
@@ -235,7 +234,6 @@ var test_trials = {
 		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 		"<div id=\"prob2\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>"
-	*/
 	],
 	data: [
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
@@ -243,7 +241,6 @@ var test_trials = {
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
-/*
 {correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
 {correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
@@ -299,7 +296,6 @@ var test_trials = {
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
-*/
 	]
 	}
 
@@ -310,7 +306,6 @@ var reverse_test_trials = {
 "<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 "<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
 "<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
-/*
 "<div id=\"prob3\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
 "<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
 "<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>",
@@ -366,7 +361,6 @@ var reverse_test_trials = {
 "<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
 "<div id=\"prob1\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish.png\"></img></div></div>",
 "<div id=\"prob4\" class = centerbox><div class = flanker-text><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish.png\"></img><img src=\"flanker_images/fish2.png\"></img><img src=\"flanker_images/fish2.png\"></img></div></div>"
-	*/
 ],
 	data: [
 {correct_response: 39, condition: 'compatible', trial_id: 'stim'},
@@ -374,7 +368,6 @@ var reverse_test_trials = {
 {correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
-/*
 {correct_response: 37, condition: 'incompatible', trial_id: 'stim'},
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'incompatible', trial_id: 'stim'},
@@ -430,7 +423,6 @@ var reverse_test_trials = {
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 37, condition: 'compatible', trial_id: 'stim'},
 {correct_response: 39, condition: 'incompatible', trial_id: 'stim'}
-*/
 ]
 }
 	
