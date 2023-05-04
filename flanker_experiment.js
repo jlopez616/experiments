@@ -151,8 +151,8 @@ var reverse_test_stimuli = [{
 
 
 practice_len = 4 //5 minutes //12
-exp_len = 5//5  60//should be both congruent and incogruent trials //12
-reverse_exp_len = 5 //60
+exp_len = 60//5  60//should be both congruent and incogruent trials //12
+reverse_exp_len = 60 //60
 
 var new_practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 
