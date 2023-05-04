@@ -46,6 +46,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         firebase.initializeApp(firebaseConfig);
 
 
+
   /*
       This is a web-based operation span working memory test.
       It is modelled after the operation span test described in Oswald et al (2014) [https://link.springer.com/article/10.3758/s13428-014-0543-2].
@@ -60,9 +61,9 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
   //----- CUSTOMIZABLE VARIABLES -----------------------------------------
 
-    minSetSize = 3 // starting length of each trial (i.e., min number of letters in a trial) default 4
-    maxSetSize = 7 // ending length of each trial (i.e., max number of letters in a trial) default 7
-    repSet = 1 // number of times each set size should be repeated default 3
+    minSetSize = 2 // starting length of each trial (i.e., min number of letters in a trial)
+    maxSetSize = 4 // ending length of each trial (i.e., max number of letters in a trial)
+    repSet = 1 // number of times each set size should be repeated
     randomize = false // present different set sizes in random order. if false, set sizes will be presented in ascending order
     file_name = null // file name for data file. if null, a default name consisting of the participant ID and a unique number is chosen.
     local = false // save the data file locally.
@@ -75,21 +76,23 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
   var possibleLetters = ["F","H","J","K","L","N","P","Q","R","S","T","V"]
 
-  var setSizes = []    // different set sizes
-  for (var i = minSetSize; i<= maxSetSize; i++){
-    for (var r = 1; r<= repSet; r++){
-      setSizes.push(i)
-    }
-  }
-  //console.log(setSizes)
+  var setSizes = [4, 6, 5, 3, 6]    // different set sizes-----------important hardletters and setsizes must match
+  // var setSizes = [3]    // different set sizes-----------important hardletters and setsizes must match
+
+  var PLV_selection = ['P', 'L', 'V']
+  var hardLetters =  [["Q", "R", "S"], ["J", "L", "V"], ["V", "S", "T", "K" ], ["Q", "T", "J", "R", "N", "V"],["R", "S", "H", "Q", "J"],["L", "T", "Q"], ["S", "V", "S", "P", "Q", "L"]]
+  
+   // var hardLetters = [["H", "K", "T"]]
+
+
 
   var nTrials = setSizes.length // number of trials
 
   if (randomize){
     setSizes = jsPsych.randomization.sampleWithoutReplacement(setSizes, nTrials)} // shuffle through the set sizes
 
-  var letterMemDemoArray = [3]  // set sizes of initial demo trials (ORIGINALLY 3/4)
-  var fullDemoArray = [3]       // set sizes of full demo trials (ORIGINALLY 3/4)
+  var letterMemDemoArray = [3]  // set sizes of initial demo trials
+  var fullDemoArray = [3]       // set sizes of full demo trials
   var nPracticeTrials = letterMemDemoArray.length
   var nfullDemo = fullDemoArray.length
   var nCogLoadDemo = 0
@@ -98,40 +101,241 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   var totalTrials = setSizes.length //total number of trials in the entire task (demo + main task)
 
   var n = 0 //keeps track of number of trials gone by
-  var selection = jsPsych.randomization.sampleWithoutReplacement(possibleLetters, setSizes[n])
-  var PLV_selection = ['P', 'L', 'V']
+  var selection = hardLetters[n]
+  
+  // console.log(selection)
   var selection_id = 0 //keeps track of recall items within a test stack
 
   var nLetterRecalled = 0 // feedback
   var nMathAcc = 0 // feedback
+  var nMath = 0
+  /*var keyProblems = [false, //PL1
+  true, //PL2
+  false, //PL3
+  true, //PL4
+  true, //PL5
+  false, //P1
+  false, //P2
+  true, //P3
+  false,  //R1 1
+  true,  //R1 2
+  true,  //R1 3
+  false,  //R1 4
+  true, //R2 1
+  true,  //R2 2
+  false, //R2 3
+  false, //R2 4
+  true, //R2 5
+  false, //R2 6
+  true, //R3 1
+  true, //R3 2
+  false, //R3 3
+  false, //R3 4
+  false, //R3 5
+  false, //R4 1
+  true,  //R4 2
+  false, //R4 3
+  false, //R5 1
+  true, //R5 2
+  true, //R5 3
+  true, //R5 4
+  false,  //R5 5
+  true,  //R5 6
+];
+/*
+  false, 
+  true, 
+  false, 
+  true,
+  true, 
+  true, 
+  false,
+  false, 
+  true, 
+  true, 
+  false, 
+  true];*/
+ 
+  var keyProblems = [
+  true, //PL1
+  false, //PL2
+  true, //PL3
+  true, //PL4
+  false, //PL5
+  true, //P1
+  false, //P2
 
-  var cogloadf = function(correct){  // generates math questions
-    var possibleOperations = [" + "]
-    operation = jsPsych.randomization.sampleWithReplacement(possibleOperations, 1)[0]
-    if (operation==" + "){
-      num1 = Math.floor(jStat.uniform.sample(1, 10))
-      num2 =  Math.floor(jStat.uniform.sample(1, 10))
-      ans = num1 + num2
-    } else if (operation==" - "){
-      num1 = Math.floor(jStat.uniform.sample(1, 10))
-      num2 = Math.floor(jStat.uniform.sample(1, num1))
-      ans = num1 - num2
-    }
-    if (!correct){   // generates incorrect answers
-      ansDiff = jsPsych.randomization.sampleWithReplacement([1,2],1)[0]
-      coinFlip = jsPsych.randomization.sampleWithReplacement([true, false],1)[0]
-      if (coinFlip){
-        ans += ansDiff
-      } else {
-        ans -= ansDiff
-      }
-      if (ans<0){
-        ans += 2*ansDiff //ensuring no negative incorrect answers
-      }
-    }
-    return '<div style="font-size:46px;">'+num1+operation+num2+' = '+ans+'<br><br><br><br></div>'
-  }
+  true,  //R1 1
+  false,  //R1 2
+  false,  //R1 3
+  true,  //R1 4
+  true, //R2 1
+  false,  //R2 2
+  false, //R2 3
+  true, //R2 4
+  true, //R2 5
+  false, //R2 6
+  false, //R3 1
+  false, //R3 2
+  false, //R3 3
+  true, //R3 4
+  true, //R3 5
+  false, //R4 1
+  true,  //R4 2
+  false, //R4 3
+  false, //R5 1
+  true, //R5 2
+  true, //R5 3
+  false, //R5 4
+  false,  //R5 5
+  true,  //R5 6
+];
+ 
+var mathProblems =   [
+  /*
+["4.5", "3/8"], //PL1
+  ["1/4", "2/4", "3/4"], //LP2
+  ["2.33", "23/100"], //PL3
+  ["4/4", "2/4", "6/4"], //PL4
+  ["1/4", "3/4", "1"], //PL5
+  ["1/4", "0.14"], //PL1
+  ["2/4", "0.24"], //P2
+  ["0.75",  "3/4"],//P3
+  
+  ["1/4", "3/4", "3/8"], //R1 1
+  ["1", "4/4"], //R1 2
+  ["1/5", "3/10", "1/2"], //R1 3
+  ["0.66", "0/5"], //R1 4
+  ["1/4", "1/2", "3/4"], //R2 1
+  ["0.4", "4/10"], //R2 2
+  ["2/3", "1/3", "3/6"], //R2 3
+  ["5/3", "5/3", "5/3"], //R2 4
+  ["2/10", "0.2"], //R2 5
+  ["4.5", "4/5"], //R2 6
+  ["4/10", "5/10", "9/10"], //R3 1
+  ["0.66", "6/9"], //R3 2
+  ["8/3", "1/3", "9/6"],//R3 3
+  ["1/2", "1/2", "2/4"],//R3 4
+  ["2.33", "23/3"],//R3 5
+  ["0.25", "25/50"], //R4 1
+  ["3/5", "0.6"], //R4 2
+["0.30", "3/10"], //R4 3
+["1/5", "2/5", "3/10"], //R5 1
+["0.5", "1/2"], //R5 2
+["2.50", "5/2"], //R5 3
+["4/10", "0.4"], //R5 4
+["1/5", "1/5", "2/10"], //R5 5
+["0.44", "4/9"], //R5 6
+]
 
+
+var ospanProblems= [
+*/
+  "1+2+3=6 ".split(""),//PL1
+  "5+4-1=9 ".split(""), //PL2
+  "6-2-3=1 ".split(""), //PL3
+  "4+4+4=12".split(""),//PL4
+  "4+4-4=12".split(""), //PL5
+
+
+  "6+5+1=12".split(""),//P1
+  "4+6+3=12".split(""),//P2
+  "6+2+2=8 ".split(""),//P3
+
+  "6+1-3=4 ".split(""), //R1 1 
+  "8-3+4=8 ".split(""), //R1 2
+  "9+5-4=10".split(""), //R1 3
+  "9-3+2=4 ".split(""), //R1 4
+
+  "2-2+7=7 ".split(""), //R2 1
+  "3+1+2=8 ".split(""), //R2 2
+  "7+5-6=7 ".split(""), //R2 3
+  "8+8-1=15".split(""), //R2 4
+  "5-7+9=7 ".split(""), //R2 5
+  "6-4+5=6 ".split(""), //R2 6
+
+  "1+4+4=6 ".split(""), //R3 1
+  "7-2+7=16".split(""), //R3 2
+  "6-2+6=11".split(""), //R3 3
+  "4+6-9=1 ".split(""),//R3 4
+  "3+9-8=4 ".split(""),//R3 5
+
+  "8-2-2=8 ".split(""), //R4 1
+  "9-1+8=16".split(""), //R4 2
+  "6+8-3=10".split(""),//R4 3
+
+  "2-1+5=8 ".split(""), //R5 1
+  "3+8+1=12".split(""), //R5 2
+  "1+5+4=10".split(""), //R5 3
+  "4-9+5=10".split(""), //R5 4
+  "9-3-6=12".split(""), //R5 5
+  "1+7-6=2 ".split("") //R5 6
+
+/*//New Problems
+["1/4", "3/4", "1/2"],
+["3/5", "2/5", "1"],
+["1/3", "0.3"],
+["2/8", "4/8", "6/8"]
+["1/8", "0.125"],
+["1/10", "2/10", "3/10"]
+["2/3", "1/6", "3/6"],
+
+["2/3", "3/4", "5/7"],
+["0.25", "1/4", "2/4"],
+["3/5","0.6"],
+["1/3", "2/3", "3/6"],
+["0.6","6/10"]*/
+
+]
+
+  // var cogloadf = function(correct){  // generates math questions
+  //   var possibleOperations = [" + ", " - "]
+  //   operation = jsPsych.randomization.sampleWithReplacement(possibleOperations, 1)[0]
+  //   if (operation==" + "){
+  //     num1 = Math.floor(jStat.uniform.sample(1, 11))
+  //     num2 =  Math.floor(jStat.uniform.sample(1, 11))
+  //     ans = num1 + num2
+  //   } else if (operation==" - "){
+  //     num1 = Math.floor(jStat.uniform.sample(1, 11))
+  //     num2 = Math.floor(jStat.uniform.sample(1, num1))
+  //     ans = num1 - num2
+  //   }
+  //   if (!correct){   // generates incorrect answers
+  //     ansDiff = jsPsych.randomization.sampleWithReplacement([1,2],1)[0]
+  //     coinFlip = jsPsych.randomization.sampleWithReplacement([true, false],1)[0]
+  //     if (coinFlip){
+  //       ans += ansDiff
+  //     } else {
+  //       ans -= ansDiff
+  //     }
+  //     if (ans<0){
+  //       ans += 2*ansDiff //ensuring no negative incorrect answers
+  //     }
+  //   }
+  //   return '<div style="font-size:46px;">'+num1+operation+num2+' = '+ans+'<br><br><br><br></div>'
+  // }
+
+
+  var cogloadf = function(correct) {
+    var problem = mathProblems[nMath];
+    console.log(problem)
+    var ans;
+      if (problem[1] == "+" && problem[3] == "+") {
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] +  "<br><br><br><br></div>";
+    } else if (problem[1] == "+" && problem[3] == "-") {
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    } else if (problem[1] == "-" && problem[3] == "-") {
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " - " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    } else if (problem[1] == "-" && problem[3] == "+") {
+      nMath += 1;
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+    }
+};
+
+//instruction screens
 var instructions = {
     type: 'instructions',
     pages: function(){
@@ -191,7 +395,7 @@ var instructions = {
   var instructions5 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start main game.<br><br></div>'
+      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start the main game.<br><br></div>'
       return [pageOne]
     },
     allow_backward: false,
@@ -199,23 +403,42 @@ var instructions = {
     show_clickable_nav: true
   }
 
+  var instructions6 = {
+    type: 'instructions',
+    pages: function(){
+      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start the ROSPAN game.<br><br></div>'
+      return [pageOne]
+    },
+    allow_backward: false,
+    button_label_next: "Next",
+    show_clickable_nav: true
+  }
+
+
+
+
+
+  //
   var cog_load_demo = {
     type: 'html-button-operationspan',
     equation_accuracy: function(){
         nCogLoadDemo +=1
-        if (nCogLoadDemo==1){
-          eqCorrect = true
-        } else if (nCogLoadDemo==2){
-          eqCorrect = false
-        } else {
-          eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
-        }
-        return eqCorrect
+        // if (nCogLoadDemo==1){
+        //   eqCorrect = true
+        // } else if (nCogLoadDemo==2){
+        //   eqCorrect = false
+        // } else {
+        //   eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
+        // }
+        // return eqCorrect
+        eqCorrect = keyProblems[nMath];
+        return eqCorrect;
       },
     stimulus: function(){
       return cogloadf(eqCorrect)
     },
-    choices: ["Correct", "Incorrect"],
+
+    choices: ["True", "False"],
     on_finish: function(){
       var acc = jsPsych.data.get().last(1).values()[0].accuracy;
       if (acc==1){
@@ -224,15 +447,19 @@ var instructions = {
     }
   }
 
+
 var cog_load = {
   type: 'html-button-operationspan',
   equation_accuracy: function(){
-      eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
-      return eqCorrect
+      // eqCorrect = jsPsych.randomization.sampleWithReplacement([true, false], 1)[0]
+      // return eqCorrect
+      eqCorrect = keyProblems[nMath];
+        return eqCorrect;
   },
   stimulus: function(){
     return cogloadf(eqCorrect)
   },
+ 
   trial_duration:6000,
   choices: ["True", "False"],
   on_finish: function(){
@@ -246,10 +473,10 @@ var cog_load = {
 var test_stimuli = {
   type: 'html-keyboard-response',
   stimulus: function(){
-    return '<div style="font-size:70px;">'+selection[selection_id]+'<br><br><br><br></div>'
+    return '<div style="font-size:70px;">'+selection[selection_id]+'<br><br><br><br></div>'//selection random
   },
   choices: jsPsych.NO_KEYS,
-  trial_duration: 1000,
+  trial_duration: 800,  //this line changes the duration of how long it will be on screen
   on_finish: function(){
     selection_id += 1
   }
@@ -261,9 +488,8 @@ var PLV_test_stimuli = {
     return '<div style="font-size:70px;">'+PLV_selection[selection_id]+'<br><br><br><br></div>'
   },
   choices: jsPsych.NO_KEYS,
-  trial_duration: 1000,
+  trial_duration: 800,
   on_finish: function(){
-    console.log(selection)
     selection_id += 1
   }
 }
@@ -293,7 +519,7 @@ var recall = {
     nLetters = setSizes[n]
     nLettersRecalled = jsPsych.data.get().last(1).values()[0].accuracy;
     n+=1
-    selection = jsPsych.randomization.sampleWithoutReplacement(possibleLetters, setSizes[n])
+    selection = hardLetters[n] //sets up the NEXT selection smh
     selection_id = 0
   }
 }
@@ -309,31 +535,47 @@ var PLVrecall = {
   on_finish: function(){
     nLetters = setSizes[n]
     nLettersRecalled = jsPsych.data.get().last(1).values()[0].accuracy;
+    selection = hardLetters[n]
+    selection_id = 0
+  }
+}
+
+var testRecall = {
+  type: 'operation-span-recall',
+  correct_order: function(){
+    return testLetters
+  },
+  data: function(){
+    return {set_size: setSizes[n]}
+  },
+  on_finish: function(){
+    nLetters = setSizes[n]
+    nLettersRecalled = jsPsych.data.get().last(1).values()[0].accuracy;
     n+=1
-    selection = jsPsych.randomization.sampleWithoutReplacement(possibleLetters, setSizes[n])
+    selection = hardLetters[n]
     selection_id = 0
   }
 }
 
 
+//result screens of how many right or wrong
 var feedback = {
     type: 'instructions',
     pages: function(){
       pageOne = "<div style='font-size:20px;'><b>You recalled <font color='blue'>"+nLettersRecalled+" out of "+nLetters+"</font> letters in their correct order.</b><br><br>"
-      console.log(n)
-      if (n - 1 >nPracticeTrials){
-        pageOne+= "You solved <font color='blue'>"+nMathAcc+" out of "+nLetters+"</font> math problems correctly.<br><br></div>"
+      if (n>nPracticeTrials){
+        pageOne+= "You solved <font color='blue'>"+nMathAcc+" out of "+nLetters+"</font> math problems accurately.<br><br></div>"
       }
       return [pageOne]
     },
     allow_backward: false,
-    button_label_next: "Next",
+    button_label_next: "Next Trial",
     show_clickable_nav: true,
     on_finish: function(){
       nMathAcc = 0
     }
   }
-
+  
   var feedbackLoad = {
     type: 'html-keyboard-response',
     stimulus: function(){
@@ -351,23 +593,31 @@ var feedback = {
     trial_duration: 1000
   }
 
+  //Final screen (Thank You)
+
   var conclusion = {
     type: 'html-keyboard-response',
     stimulus: function(){
-      return '<div style="font-size:20px;">Great job, thanks for playing!</div>'
+      return '<div style="font-size:20px;">This task is over.<br><br>Thank you for your participation in this task. <br><br>Please tell the Research Assistant that you have finished the task.</div>'
   },
-    choices: jsPsych.NO_KEYS,
-    };
+    choices: jsPsych.NO_KEYS
+  }
+
+
+
+  //Enter the student's ID number
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "Enter Your Student ID Below:"}],
+    questions: [{prompt: "Enter subject number"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum
       partN = partN.replace(/['"]+/g,'')
-      console.log(partN)
+    //  console.log(partN)
     }
   }
 
+
+  //function to upload the data
   function saveData(filename, filedata){
         $.ajax({
               type:'post',
@@ -375,6 +625,17 @@ var feedback = {
               url: 'save_data.php', // this is the path to the above PHP script
               data: {filename: filename, filedata: filedata}
         });
+          // Convert data to JSON object
+    // var jsonData = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]).json();
+    
+    // // Upload data to Firestore
+    // firebase.firestore().collection('data').doc(filename).set(jsonData)
+    // .then(function() {
+    //     console.log("Data successfully uploaded to Firestore.");
+    // })
+    // .catch(function(error) {
+    //     console.error("Error uploading data to Firestore: ", error);
+    // });
   };
 
   var IDsub = Date.now()
@@ -383,61 +644,61 @@ var feedback = {
    stimulus: " ",
    trial_duration: 100,
    on_finish: function(data) {
-     var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]).json(true);
+  //    var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]);
+  //    if (file_name == null){
+  //      file_name = "WM_operation_span_"+partN+"_"+IDsub.toString()+".csv"}
+  //    else{
+  //      file_name += ".csv"
+  //    }
+
+  //    if (local){
+  //      data.localSave('csv', file_name )
+  //    } else {
+  //      saveData(file_name, data.csv());
+  //    }
+  // }
+  // }
+  var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]).json(true);
      console.log(data)
-     firebaseRef = firebase.database().ref(partN + "/ospan");
+     console.log("after data")
+     console.log(partN)
+     firebaseRef = firebase.database().ref(partN + "/OSPAN" );
+     console.log("After ref")
+//      console.log('after firebase ref')
      var promise = new Promise(function(resolve, reject) {
                      resolve(data);
                  })
+                 console.log("after promise")
+
     promise.then(function (data) {
         firebaseRef.push().set(data, (error) => {
-            if (error) {
-                for (var i = 0; i < 200; i++) {
-                    alert("Thanks for playing!");
-                }
+            // if (error) {
+            //     for (var i = 0; i < 200; i++) {
+            //         alert("Thanks for playing!");
+            //     }
 
-                console.log(error);
-            } else {
-                for (var i = 0; i < 200; i++) {
-                    alert("Thanks for playing!");
-                }
-            }
-
+            //     console.log(error);
+            // } else {
+            //     for (var i = 0; i < 200; i++) {
+            //         alert("Thanks for playing!");
+            //     }
+            // }
+              console.log(error)
         });
     }).catch(function (error) {
     alert("Big L")
+    console.log("In promise firebase")
     console.log(error)
-})
-    /* if (file_name == null){
-       file_name = "WM_operation_span_"+partN+"_"+IDsub.toString()+".csv"}
-     else{
-       file_name += ".csv"
-     }
-     if (local){
-       data.localSave('csv', file_name )
-     } else {
-       saveData(file_name, data.csv());
-     }*/
-  }
-
-
-
-
-      
-  }
-
-
+})}}
+   
+//uses test_
   var test_stack = {
     timeline: [test_stimuli, cog_load, end_test_stimuli],
     repetitions: 10
   }
+//Calling Test Procedure which combines all
 
-  var test_procedure = {
-    timeline: [test_stack, recall, feedback],
-    repetitions: nTrials - 1
-  }
-
-  var PLVDemoStack = {
+var PLVDemoStack = {
     timeline: [PLV_test_stimuli, end_test_stimuli],
     repetitions: 3
   }
@@ -466,23 +727,36 @@ var feedback = {
     timeline: [test_stack, recall, feedback],
     repetitions: nfullDemo
   }
+  
+  var test_procedure = {
+    timeline: [test_stack, recall, feedback],
+    repetitions: nTrials
+  }
+
 
   timeline = [p_details]
   timeline.push({
     type: 'fullscreen',
-    fullscreen_mode: false,
+    fullscreen_mode: true
   });
 
   timeline = timeline.concat([instructions, PLV, instructions2, lettersDemo, instructions3, loadDemo, instructions4, fullDemo, instructions5, test_procedure])
+  // timeline = timeline.concat([ fullDemo])
+
+  // timeline = timeline.concat([ test_procedure])
+
   timeline.push({
   type: 'fullscreen',
   fullscreen_mode: false
   });
   timeline.push(dataLog)
   timeline.push(conclusion)
-  jsPsych.init({
-      timeline: timeline
-  })
 
+jsPsych.init({
+  timeline: timeline,
+  // on_finish: function() {
+  //   jsPsych.data.displayData();// // comment out if you do not want to display results at the end of task
+  // }
+});
 </script>
 </html>
