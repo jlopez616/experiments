@@ -40,10 +40,10 @@ var getStim = function() {
     ball = colors[held_ball - 1]
     hold_box = '<div class = tol_hand_box><div class = "tol_hand_ball tol_' + ball +
       '"><div class = tol_ball_label>' + ball[0] +
-      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand</strong></div>'
+      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand / </strong></div>'
   } else {
     hold_box =
-      '<div class = tol_hand_box></div><div class = tol_hand_label><strong>Ball in Hand</strong></div>'
+      '<div class = tol_hand_box></div><div class = tol_hand_label><strong>Ball in Hand / Pelota en Mano</strong></div>'
   }
   return canvas + ref_board + target_board + hold_box
 }
@@ -57,10 +57,10 @@ var getPractice = function() {
     ball = colors[held_ball - 1]
     hold_box = '<div class = tol_hand_box><div class = "tol_hand_ball tol_' + ball +
       '"><div class = tol_ball_label>' + ball[0] +
-      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand</strong></div>'
+      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand / Pelota en Mano</strong></div>'
   } else {
     hold_box =
-      '<div class = tol_hand_box></div><div class = tol_hand_label><strong>Ball in Hand</strong></div>'
+      '<div class = tol_hand_box></div><div class = tol_hand_label><strong>Ball in Hand / Pelota en Mano</strong></div>'
   }
   return canvas + ref_board + target_board + hold_box
 }
@@ -78,10 +78,10 @@ var getFB = function() {
   }
   var feedback;
   if (isequal === true) {
-    feedback = "You got it!"
+    feedback = "You got it! Muy bien!"
     correct = true
   } else {
-    feedback = "Didn't get that one."
+    feedback = "Didn't get that one. Ese no lo conseguiste."
   }
   
   var ref_board = makeBoard('your_board', curr_placement)
@@ -104,7 +104,9 @@ var getTime = function() {
 
 var getText = function() {
   return '<div class = centerbox><p class = center-block-text>Ready to play round ' + (problem_i + 2) + "?" +
-    ' Press <strong>enter</strong> to begin.</p></div>'
+    ' Press <strong>enter</strong> to begin.</p>' +
+    '<p class = center-block-text>¿Listo para jugar problema ' + (problem_i + 2) + "?" +
+    ' Oprime <strong>enter</strong> para empezar</p> </div>'
 }
 
 var pegClick = function(peg_id) {
@@ -325,14 +327,15 @@ var end_block = {
         exp_id: 'tower_of_london'
     },
   timing_response: 180000,
-  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this game! Press the \"Enter\" key to continue!</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this game! Press the \"Enter\" key to continue!</p>' +
+  '<p class = center-block-text>¡Gracias por completar el juego! ¡Oprima "Enter" para continuar! </div>',
   cont_key: [13],
   timing_post_trial: 0,
   on_finish: assessPerformance
 };
 
 var feedback_instruct_text =
-    'Ready to play <i>Tower of London</i>, ' + user_id + '? Press "Enter" on your keyboard to begin!'
+    'Ready to play <i>Tower of London</i>, ' + user_id + '? Press "Enter" on your keyboard to begin! <audio controls> <source src="audio/tol/entol1.wav" type="audio/ogg"></audio> <br><br>¿Listo para jugar <i>Torre de Londres</i>, ' + user_id + '? ¡Oprima "Enter" en suteclado para empezar! <audio controls><source src="audio/tol/estol1.wav"<audio></p>'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   data: {
@@ -351,16 +354,27 @@ var instructions_block = {
     trial_id: "instruction"
   },
   pages: [
-    '<div class = tol_topbox><p class = block-text>In this game, we will show you two boards with colored balls that look like this:</p></div>' +
+    '<div class = tol_topbox><p class = block-text>In this game, we will show you two boards with colored balls that look like this:</p>' +
+    '<p class = block-text>En este juego, vamos enseñarle dos tableros con pelotas de colores que se ven asi: </p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball.</p></div>',
+    '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball. <audio controls> <source src="audio/tol/entol2.wav" type="audio/ogg"></audio></p>' + 
+    '<p class = block-text> Imagínase que estas pelotas tienen ollos y que se pueden meter en los palitos en el tablero. En el primer palito caben tres pelotas, en el segundo caben dos pelotas, y en el tercer palito cabe una pelota. <audio controls> <source src="audio/tol/estol2.wav" type="audio/ogg"></audio> </p></div>',
+
+
     '<div class = tol_topbox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves.</b></p></div>' +
+    '<p class = block-text>Tiene que mover las pelotas en la tabla para que su tabla se mire como  el"Target Board", moviendo las pelotas lo menos possible.</b></p></div> ' +
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> During this task it is important that you remember, you want the <strong>fewest possible moves</strong> that are required to make your board look like the target board. <br> You will have <strong>20 seconds</strong> to play each round.<br><br></p></div>',
-    '<div class = tol_topbox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p></div>' +
+    '<div class = tol_bottombox><p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> You will have <strong>20 seconds</strong> to play each round.<audio controls> <source src="audio/tol/entol3.wav" type="audio/ogg"></audio><br><br></p>' +
+    '<p class = block-text>A veces va tener que mover una pelota a otro palito para llegar a la pelota debajo. <br> Tiene <strong>20 segundos</strong> para completar esta sección.<audio controls> <source src="audio/tol/entol3.wav" type="audio/ogg"></audio><br><br></p></div>',
+
+
+    '<div class = tol_topbox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p><audio controls> <source src="audio/tol/entol4.wav" type="audio/ogg"></audio>' +
+    '<p class = block-text>Aquí hay un ejemplo. Si movemos la pelota roja del primer palito al tercer palito en su tabla, severá como el target board.</p><audio controls> <source src="audio/tol/estol4.wav" type="audio/ogg"></audio></div>' +
     ref_board + makeBoard('peg_board', example_problem2) + '<div class = tol_bottombox></div>',
-    "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice.</p></div>",
-    "<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
+
+    "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice. <audio controls> <source src='audio/tol/entol5.wav' type='audio/ogg'></audio></p>" +
+    "<p class = block-text>Para mover una pelota, hágale clic en el palito dónde está la pelota que quieres mover. Cuando le haga clic a un palito, la pelota por encima se moverá al cuadro que dice `Pelota en mano.` Cuando le haga clic en otro palito, la pelota en mano se moverá a la parte superior del palito. </p><p class = block-text>Si elije un palito sin pelotas o intentas poner una pelota en un palito que ya está llena, nada sucederá. Cuando haya completado su tabla para que se vea como el `target board,` pasará al siguiente problema. </p><p class = block-text>Empezaremos con un ejemplo fácil para poder practicar<audio controls> <source src='audio/tol/estol5.wav' type='audio/ogg'></audio></p></div>",
+    "<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><p> Este es un ejemplo video: <video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
   ],
   allow_keys: false,
   show_clickable_nav: true,
@@ -397,7 +411,8 @@ var start_test_block = {
   },
   timing_response: 180000,
   text: '<div class = centerbox><p class = block-text>Ready to play? There will be ' +
-    problems.length + ' rounds to complete. Press <strong>enter</strong> to begin.</p></div>',
+    problems.length + ' rounds to complete. Press <strong>enter</strong> to begin.</p>' +
+   '<p class = block-text>¿Listo para jugar? Hay ' + problems.length + ' que completar. Oprime "enter" para empezar</p> </div>',
   cont_key: [13],
   timing_post_trial: 1000,
   on_finish: function() {
@@ -637,7 +652,9 @@ var final_block = {
         exp_id: 'tower_of_london'
     },
     timing_response: 180000,
-    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing</p></div>',
+    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="https://stem-lab.vercel.app/?id="'+user_id +'">Please click here to continue.</a></p></div>',
     timing_post_trial: 0,
 };
-//tower_of_london_experiment.push(final_block);
+tower_of_london_experiment.push(final_block);
+
+

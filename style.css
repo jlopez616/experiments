@@ -212,3 +212,12 @@
   position: relative;
   z-index: 1;
 }
+
+.audiobuttons {
+  text-align:center;
+}
+
+.audiobuttons > img{
+  height:100px;
+  weight:100px;
+}

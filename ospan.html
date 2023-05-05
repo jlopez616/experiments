@@ -322,16 +322,16 @@ var ospanProblems= [
     var ans;
       if (problem[1] == "+" && problem[3] == "+") {
       nMath += 1;
-      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] +  "<br><br><br><br></div>";
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] + problem[7] +  "<br><br><br><br></div>";
     } else if (problem[1] == "+" && problem[3] == "-") {
       nMath += 1;
-      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " - " + problem[4] + " = " + problem[6] + problem[7]+  "<br><br><br><br></div>";
     } else if (problem[1] == "-" && problem[3] == "-") {
       nMath += 1;
-      return '<div style="font-size:46px;">' + problem[0] + " - " + problem[2] + " - " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+      return '<div style="font-size:46px;">' + problem[0] + " - " + problem[2] + " - " + problem[4] + " = " + problem[6] + problem[7]+  "<br><br><br><br></div>";
     } else if (problem[1] == "-" && problem[3] == "+") {
       nMath += 1;
-      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] + "<br><br><br><br></div>";
+      return '<div style="font-size:46px;">' + problem[0] + " + " + problem[2] + " + " + problem[4] + " = " + problem[6] + problem[7]+ "<br><br><br><br></div>";
     }
 };
 
@@ -598,7 +598,7 @@ var feedback = {
   var conclusion = {
     type: 'html-keyboard-response',
     stimulus: function(){
-      return '<div style="font-size:20px;">This task is over.<br><br>Thank you for your participation in this task. <br><br>Please tell the Research Assistant that you have finished the task.</div>'
+      return '<div style="font-size:20px;">This task is over.<br><br>Thank you for your participation in this task. <br><br><a href="https://stem-lab.vercel.app/flanker.html?id=' + partN + '>Please click this link to continue"</a></div>'
   },
     choices: jsPsych.NO_KEYS
   }
@@ -608,7 +608,7 @@ var feedback = {
   //Enter the student's ID number
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "Enter subject number"}],
+    questions: [{prompt: "Enter your Lunch ID:"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum
       partN = partN.replace(/['"]+/g,'')
@@ -659,16 +659,11 @@ var feedback = {
   // }
   // }
   var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]).json(true);
-     console.log(data)
-     console.log("after data")
-     console.log(partN)
      firebaseRef = firebase.database().ref(partN + "/OSPAN" );
-     console.log("After ref")
 //      console.log('after firebase ref')
      var promise = new Promise(function(resolve, reject) {
                      resolve(data);
                  })
-                 console.log("after promise")
 
     promise.then(function (data) {
         firebaseRef.push().set(data, (error) => {
@@ -686,9 +681,7 @@ var feedback = {
               console.log(error)
         });
     }).catch(function (error) {
-    alert("Big L")
-    console.log("In promise firebase")
-    console.log(error)
+    alert("DATA WAS NOT REGISTERED. PLEASE RAISE YOUR HAND AND TELL THE RESEARCH ASSISTANT");
 })}}
    
 //uses test_
