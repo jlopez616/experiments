@@ -40,7 +40,7 @@ var getStim = function() {
     ball = colors[held_ball - 1]
     hold_box = '<div class = tol_hand_box><div class = "tol_hand_ball tol_' + ball +
       '"><div class = tol_ball_label>' + ball[0] +
-      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand / </strong></div>'
+      '</div></div></div><div class = tol_hand_label><strong>Ball in Hand / Pelota en Mano</strong></div>'
   } else {
     hold_box =
       '<div class = tol_hand_box></div><div class = tol_hand_label><strong>Ball in Hand / Pelota en Mano</strong></div>'
@@ -87,7 +87,7 @@ var getFB = function() {
   var ref_board = makeBoard('your_board', curr_placement)
   var target_board = makeBoard('peg_board', target)
   var canvas = '<div class = tol_canvas><div class="tol_vertical_line"></div></div>'
-  var feedback_box = '<div class = tol_feedbackbox><p class = center-text>' + feedback +
+  var feedback_box = '<div class = tol_feedbackbox><p class = tol-feedback-text>' + feedback +
     '</p></div>'
   return canvas + ref_board + target_board + feedback_box
 }

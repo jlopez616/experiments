@@ -478,7 +478,7 @@ var post_task_block = {
 };
 /* define static blocks */
 var feedback_instruct_text =
-	'Ready to play, ' + user_id + '? Press <strong>enter</strong> to begin. <br> ¿Listo para jugar, ' + user_id + '? Oprime "Enter" para empezar.'
+	'Ready to play, ' + user_id + '? Press <strong>"Enter"</strong> to begin. <audio controls> <source src="audio/flanker/en1.wav" type="audio/ogg"></audio> <br> ¿Listo para jugar, ' + user_id + '? Oprime <strong>"Enter"</strong> para empezar. <audio controls> <source src="audio/flanker/es1.wav" type="audio/ogg"></audio> '
 var feedback_instruct_block = {
 	type: 'poldrack-text',
 	cont_key: [13],
@@ -493,8 +493,9 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p></div>",
-		"<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><p>Aquí está un video de un ejemplo:</p><video width='640' height='480' controls><source src='demos/flanker.mp4' type='video/mp4'></video>"
+		"<div class = centerbox><p class = block-text>In this game you will see five fish facing left or right. Your task is to respond by pressing the arrow key facing the same direction as the <strong>middle</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the 'LEFT' key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key. <audio controls> <source src='audio/flanker/en2.wav' type='audio/ogg'></audio> </p><br><br><br>" +
+		"<p class = block-text>En este juego va ver 5 peces viendo hacia la izquierda o la derecha. La meta es responder oprimiendo la tecla con la flecha que corresponde con la dirección que está viendo el pez en <strong>el medio</strong>. Por ejemplo, si ve: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>oprimirá la tecla de flecha izquierda.</p><p class= block-text>Después de cada ronda, le diremos si oprimió la tecla correcta. <audio controls> <source src='audio/flanker/es2.wav' type='audio/ogg'></audio></p>",
+		"<div class = centerbox align=center><p style='font-size: 24px'>Here is a video example:</p><p style='font-size: 24px'>Aquí está un video de un ejemplo:</p><video width='640' height='480' controls><source src='demos/flanker.mp4' type='video/mp4'></video>"
 	],
 	allow_keys: false,
 	data: {
@@ -543,7 +544,12 @@ var start_reverse_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p><p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p><p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p><p>Press <b>'enter'</b> to continue</p></div>",
+	text: "<div class = centerbox><p class = block-text>Now, respond by pressing the arrow key facing the same direction as the <strong>surrounding</strong> fish. Press the key <strong>as fast as you can</strong>. So if you see: </p>" +
+	"<p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p>" +
+	"<p class = block-text>you would press the <b>'RIGHT'</b> key.</p><p class = block-text>After each round, we will tell you if you pressed the correct key.</p><p class = block-text>Press <b>'Enter'</b> to continue. <audio controls> <source src='audio/flanker/en4.wav' type='audio/ogg'></audio></p><br><br><br>" +
+	"<p class = block-text>Ahora, responde oprimiendo la tecla con la flecha que <strong>corresponde</strong> con la dirección que están viendo los pesces circundantes. Oprime la tecla lo <strong>más rápido posible</strong>. Por ejemplo, si ve:</p>" +
+	"<p class = block-text><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish.png'></img><img class='minifish' src='flanker_images/fish2.png'></img><img class='minifish' src='flanker_images/fish2.png'></img></p>" +
+    "<p class = block-text>oprimerá la tecla de flecha <strong>derecha</strong>.</p><p class = block-text> Después de cada ves, le diremos sioprimió la tecla correcta.</p><p class = block-text>Oprima <b>'Enter'</b> para empezar.  <audio controls> <source src='audio/flanker/es4.wav' type='audio/ogg'></audio> </div>",
 	cont_key: [13],
 	timing_post_trial: 1000
 };
@@ -554,7 +560,11 @@ var start_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: '<div class = centerbox><p class = center-block-text>Ready to play the real game? ¿Listo para jugar el juego verdadero? </p><p class = center-block-text>Press <strong>"Enter"</strong> to begin.</p><p class = center-block-text>Oprima <strong>"Enter"</strong> para empezar</div>',
+	text: '<div class = centerbox><p class = center-block-text>Ready to play the real game? </p>' +
+	'<p class = center-block-text>Press <strong>"Enter"</strong> to begin.  <audio controls> <source src="audio/flanker/en3.wav" type="audio/ogg"></audio>  </p>' +
+	'<p class = center-block-text>¿Listo para jugar el juego verdadero?</p>' +
+
+	'<p class = center-block-text>Oprima <strong>"Enter"</strong> para empezar.  <audio controls> <source src="audio/flanker/es3.wav" type="audio/ogg"></audio> </div>',
 	cont_key: [13],
 	timing_post_trial: 1000
 };

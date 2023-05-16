@@ -339,9 +339,9 @@ var ospanProblems= [
 var instructions = {
     type: 'instructions',
     pages: function(){
-      pageOne = "<div style='font-size:20px;'><p>Let\'s have fun with a memory game! First we\'ll show you how to play the game.</p></div>"
-      pageTwo = '<div style="font-size:20px;">You will click on letters that you see in order. I\’ll do it first!<br><video width="640" height="480" controls><source src="demos/toldemo.mov" type="video/mp4"></video></div>'
-      pageThree = '<div style="font-size:20px;">Now you try clicking them! On the next screen, type the letters “P L V”. Are you ready?</div>'
+      pageOne = "<div style='font-size:20px;'><p>Let\'s have fun with a memory game! First we\'ll show you how to play the game. <br><audio controls> <source src='audio/ospan/en1.wav' type='audio/ogg'></audio></p> <p>¡Es hora de divertirnos con un juego de memoria! Primero les enseñaremos como jugar el juego. <br> <audio controls> <source src='audio/ospan/es1.wav' type='audio/ogg'></audio> </p></div>"
+      pageTwo = '<div style="font-size:20px;"><p>You will click on letters that you see in order. I\’ll do it first!<br><audio controls> <source src="audio/ospan/en2.wav" type="audio/ogg"></audio></p><p>Va a seleccionar las letras con hacer click en el orden que las ve. ¡Lo haré primero!<br><audio controls> <source src="audio/ospan/es2.wav" type="audio/ogg"></audio></p><br><video width="640" height="480" controls><source src="demos/ospan_demo.mov" type="video/mp4"></video></div>'
+      pageThree = '<div style="font-size:20px;">Now you try clicking them! On the next screen, type the letters “P L V”. Are you ready?<br><audio controls> <source src="audio/ospan/en3.wav" type="audio/ogg"></audio><br></p><p>¡Ahora, usted intente hacerles clic! En la proxima pantalla, escriba las letras "P L V". ¿Listo?<br><audio controls> <source src="audio/ospan/es3.wav" type="audio/ogg"></audio></p></div>'
 
       return [pageOne, pageTwo, pageThree]
     },
@@ -353,9 +353,11 @@ var instructions = {
   var instructions2 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Nice job! Now, let\’s see the rules of the game.</div>'
-      pageTwo = '<div style="font-size:20px;"><b>This game has two parts:</b><br><br>Game 1: Memorize ALL the letters in order.<br>Game 2: Solve math problems too!<br><br><br>The hardest part? <b>You have to do all of it in your head.</b></div>'
-      pageThree = '<div style="font-size:20px;">Ready to practice with letters?<br><br><br>Pay attention, you have to do all of it in your head!</b></div>'
+      pageOne = '<div style="font-size:20px;"><p>Nice job! Now, let\’s see the rules of the game.<br><audio controls> <source src="audio/ospan/en4.wav" type="audio/ogg"></audio></p><p>¡Muy bien! Ahora, vamos ha repasar las reglas del juego.<br><audio controls> <source src="audio/ospan/es4.wav" type="audio/ogg"></audio></p></div>' 
+      pageTwo = '<div style="font-size:20px;"><p><b>This game has two parts:</b><br><br>Game 1: Memorize ALL the letters in order.<br>Game 2: Solve math problems too!<br><br><br>The hardest part? <b>You have to do all of it in your head.</b><br><audio controls> <source src="audio/ospan/en5.wav" type="audio/ogg"></audio></p><p><b>Este juego tiene dos partes:</b><br><br>Juego 1: Memorize TODAS las letras en orden.<br>Juego 2: ¡Resuelve los problemas de matematicas tambien!<br><br><br>The hardest part? <b>¿Lo más dificil? Tiene que hacerlo todo en su cabeza.</b><br><audio controls> <source src="audio/ospan/es5.wav" type="audio/ogg"></audio></p></div>'
+      pageThree = '<div style="font-size:20px;"><p>Ready to practice with letters?<br>Pay attention, you have to do all of it in your head!</b><br><audio controls> <source src="audio/ospan/en6.wav" type="audio/ogg"></audio></p><p>¿Listo para practicar con las letras?<br>¡Ponga atención, tiene que hacerlo todo en su cabeza!</b><br><audio controls> <source src="audio/ospan/es6.wav" type="audio/ogg"></audio></p></div>'
+     
+
       return [pageOne, pageTwo, pageThree]
     },
     allow_backward: false,
@@ -366,12 +368,10 @@ var instructions = {
   var instructions3 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Great job with the letters! Ready to add the math game?</div>'
-      pageTwo = '<div style="font-size:20px;">Solve the problem as fast as you can and then decide if the answer is correct. Then click on "Correct" or "Incorrect". <br> <img src="demos/ospan_true_false.png" width="320" height="240" ></img></div>'
-      pageThree = '<div style="font-size:20px;">Watch how I do it!<br><video width="640" height="480" controls><source src="demos/toldemo.mov" type="video/mp4"></video></div>'
-      pageFour = '<div style="font-size:20px;">Ready to practice the math game?<br><br><br>Pay attention, you have to do all of it in your head <b>as fast as you can!</b></div>'
-
-      return [pageOne, pageTwo, pageThree, pageFour]
+      pageOne = '<div style="font-size:20px;"><p>Great job with the letters! Ready to add the math game?<br><audio controls> <source src="audio/ospan/en7.wav" type="audio/ogg"></audio></p><p>¡Muy buen trabajo con las letras! ¿Listo para agregar el juego de matemáticas?<br><audio controls> <source src="audio/ospan/es7.wav" type="audio/ogg"></audio></p></div>'
+      pageTwo = '<div style="font-size:20px;"><p>Solve the problem as fast as you can and then decide if the answer is correct. Then click on "True" or "False".<br><audio controls> <source src="audio/ospan/en8.wav" type="audio/ogg"></audio></p><p>Resuelve el problema lo mas rápido posible y de ahi decide si la respuesta presentada es correcta. De ahi, oprime "True" o "False".<br><br><audio controls> <source src="audio/ospan/es8.wav" type="audio/ogg"></audio></p><img src="demos/ospan_true_false.png" width="320" height="240" ></img></div>'
+      pageThree = '<div style="font-size:20px;"><p>Ready to practice the math game?<br>Pay attention, you have to do all of it in your head <b>as fast as you can!</b><br><audio controls> <source src="audio/ospan/en9.wav" type="audio/ogg"></audio></p><p>¿Listo para practicar el juego de matematicas? <br>¡Ponga atención, tiene que hacerlo todo en su cabeza lo <b>mas rápido posible</b>!<br><audio controls> <source src="audio/ospan/es9.wav" type="audio/ogg"></audio></p></div>'
+      return [pageOne, pageTwo, pageThree]
     },
     allow_backward: false,
     button_label_next: "Next",
@@ -381,7 +381,7 @@ var instructions = {
   var instructions4 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Great job with the math!<br> Ready to practice the whole game? Now we\'ll put the letter and math games together. <br>1. Remember ALL the letters in order. <br>2. Solve math problems too! <br> Pay attention! You have to do it all in your head!</div>'
+      pageOne = '<div style="font-size:20px;"><p>Great job with the math!<br><br>Ready to practice the whole game? Now we\'ll put the letter and math games together. <br>1. Remember ALL the letters in order. <br>2. Solve math problems too! <br><br> Pay attention! You have to do it all in your head!<br><audio controls> <source src="audio/ospan/en10.wav" type="audio/ogg"></audio></p><p> ¡Muy bien con el juego de matemáticas!<br><br>¿Listo para practicar el juego entero? Ahora pondremos las letras y los problemas de matemáticas juntos. <br>1.Recuérdese de TODAS las letras en orden.  <br>2.¡También Resuelve los problemas de matemáticas!<br><br> Ponga atención! ¡Lo tiene que completar todo en su cabeza!<br><audio controls> <source src="audio/ospan/es10.wav" type="audio/ogg"></audio></p></div>'
       return [pageOne]
     },
     allow_backward: false,
@@ -395,7 +395,7 @@ var instructions = {
   var instructions5 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">Great job!<br><br>Press "Next" to start the main game.<br><br></div>'
+      pageOne = '<div style="font-size:20px;"><p>Great job!<br>Press "Next" to start the main game.<br></p><p>¡Muy bien!<br>Oprime "Next" para empezar el juego principal. <br></p></div>'
       return [pageOne]
     },
     allow_backward: false,
@@ -562,9 +562,9 @@ var testRecall = {
 var feedback = {
     type: 'instructions',
     pages: function(){
-      pageOne = "<div style='font-size:20px;'><b>You recalled <font color='blue'>"+nLettersRecalled+" out of "+nLetters+"</font> letters in their correct order.</b><br><br>"
+      pageOne = "<div style='font-size:20px;'><p><b>You recalled <font color='blue'>"+nLettersRecalled+" out of "+nLetters+"</font> letters in their correct order.</b><br></p><p><b>Usted recordó <font color='blue'>"+nLettersRecalled+" de las "+nLetters+"</font> letras en el orden correcto.</b><br></p><br>"
       if (n>nPracticeTrials){
-        pageOne+= "You solved <font color='blue'>"+nMathAcc+" out of "+nLetters+"</font> math problems accurately.<br><br></div>"
+        pageOne+= "<p>You solved <font color='blue'>"+nMathAcc+" out of "+nLetters+"</font> math problems accurately.<br></p><p>Resolvio <font color='blue'>"+nMathAcc+" de los "+nLetters+"</font> problemas de matemáticas correctamente.<br></p><br></div>"
       }
       return [pageOne]
     },
@@ -582,9 +582,9 @@ var feedback = {
       var text = ""
       var accuracy = jsPsych.data.get().last(1).values()[0].accuracy
       if (accuracy==1){
-        text += '<div style="font-size:35px; color:rgb(0 220 0)"><b>Correct<br><br><br><br></div>'
+        text += '<div style="font-size:35px; color:rgb(0 220 0)"><b>Correct<br><br>Correcto<br><br><br></div>'
       } else{
-        text += '<div style="font-size:35px; color:rgb(240 0 0)"><b>Incorrect<br><br><br><br></div>'
+        text += '<div style="font-size:35px; color:rgb(240 0 0)"><b>Incorrect<br><br>Incorrecto<br><br><br></div>'
       }
       //text += '<div style="font-size:30px; color:rgb(0 0 0)"><br><br>New trial starting now.</div>'
       return text
@@ -598,7 +598,7 @@ var feedback = {
   var conclusion = {
     type: 'html-keyboard-response',
     stimulus: function(){
-      return '<div style="font-size:20px;">This task is over.<br><br>Thank you for your participation in this task. <br><br><a href="https://stem-lab.vercel.app/flanker.html?id=' + partN + '>Please click this link to continue"</a></div>'
+      return '<div style="font-size:20px;"><p>Great job! Thanks for playing! <br><br><a href="https://stem-lab.vercel.app/flanker.html?id=' + partN +'">Please click this link to continue.</a></p><p>¡Muy bien! ¡Gracias por haber jugado!<br><br><a href="https://stem-lab.vercel.app/flanker.html?id=' + partN +'">Por favor, Por favor, haz clic aquí para continuar.</a></p></div>'
   },
     choices: jsPsych.NO_KEYS
   }
@@ -608,7 +608,7 @@ var feedback = {
   //Enter the student's ID number
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "Enter your Lunch ID:"}],
+    questions: [{prompt: "Enter your Lunch ID / Ingrese su ID de Almuerzo:"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum
       partN = partN.replace(/['"]+/g,'')
@@ -734,7 +734,7 @@ var PLVDemoStack = {
   });
 
   timeline = timeline.concat([instructions, PLV, instructions2, lettersDemo, instructions3, loadDemo, instructions4, fullDemo, instructions5, test_procedure])
-  // timeline = timeline.concat([ fullDemo])
+  //timeline = timeline.concat([conclusion])
 
   // timeline = timeline.concat([ test_procedure])
 
