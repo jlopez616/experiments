@@ -354,27 +354,24 @@ var instructions_block = {
     trial_id: "instruction"
   },
   pages: [
-    '<div class = tol_topbox><p class = block-text>In this game, we will show you two boards with colored balls that look like this:</p>' +
-    '<p class = block-text>En este juego, vamos enseñarle dos tableros con pelotas de colores que se ven asi: </p></div>' +
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball. <audio controls> <source src="audio/tol/entol2.wav" type="audio/ogg"></audio></p>' + 
-    '<p class = block-text> Imagínase que estas pelotas tienen ollos y que se pueden meter en los palitos en el tablero. En el primer palito caben tres pelotas, en el segundo caben dos pelotas, y en el tercer palito cabe una pelota. <audio controls> <source src="audio/tol/estol2.wav" type="audio/ogg"></audio> </p></div>',
+    '<div class = tol_bottombox><p class = block-text>In this game, we will show you two boards with colored balls that look like the above boards. </p><p class = block-text>Imagine that these balls have holes through them and the pegs fit through the holes. The first peg can hold three balls, the second peg can hold two balls, and the third peg can hold one ball. <audio controls> <source src="audio/tol/entol2.wav" type="audio/ogg"></audio></p><br><br>' + 
+    '<p class = block-text>En este juego, vamos enseñarle dos tableros con pelotas de colores que se ven a los tableros anteriores.</p><p class = block-text>Imagínase que estas pelotas tienen ollos y que se pueden meter en los palitos en el tablero. En el primer palito caben tres pelotas, en el segundo caben dos pelotas, y en el tercer palito cabe una pelota. <audio controls> <source src="audio/tol/estol2.wav" type="audio/ogg"></audio> </p></div>',
 
-
-    '<div class = tol_topbox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves.</b></p></div>' +
-    '<p class = block-text>Tiene que mover las pelotas en la tabla para que su tabla se mire como  el"Target Board", moviendo las pelotas lo menos possible.</b></p></div> ' +
+    //<p class = block-text>En este juego, vamos enseñarle dos tableros con pelotas de colores que se ven asi: </p>
     ref_board + makeBoard('peg_board', example_problem1) +
-    '<div class = tol_bottombox><p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> You will have <strong>20 seconds</strong> to play each round.<audio controls> <source src="audio/tol/entol3.wav" type="audio/ogg"></audio><br><br></p>' +
+    '<div class = tol_bottombox><p class = block-text>You have to move the balls on your board to make your board look like target board, in the <b>fewest possible moves.</b></p>' +
+    '<p class = block-text>Sometimes you will have to move a ball to a different peg in order to get to the ball below it. <br> You will have <strong>20 seconds</strong> to play each round.<audio controls> <source src="audio/tol/entol3.wav" type="audio/ogg"></audio><br><br></p><br><br>' +
+    '<p class = block-text>Tiene que mover las pelotas en la tabla para que su tabla se mire como el "Target Board", moviendo las pelotas lo menos possible.</b></p>' +
     '<p class = block-text>A veces va tener que mover una pelota a otro palito para llegar a la pelota debajo. <br> Tiene <strong>20 segundos</strong> para completar esta sección.<audio controls> <source src="audio/tol/entol3.wav" type="audio/ogg"></audio><br><br></p></div>',
 
-
-    '<div class = tol_topbox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p><audio controls> <source src="audio/tol/entol4.wav" type="audio/ogg"></audio>' +
-    '<p class = block-text>Aquí hay un ejemplo. Si movemos la pelota roja del primer palito al tercer palito en su tabla, severá como el target board.</p><audio controls> <source src="audio/tol/estol4.wav" type="audio/ogg"></audio></div>' +
-    ref_board + makeBoard('peg_board', example_problem2) + '<div class = tol_bottombox></div>',
+    ref_board + makeBoard('peg_board', example_problem2) +
+    '<div class = tol_bottombox><p class = block-text>Here is an example. On your board, if we move the red ball from the first peg the third peg then it would look like the target board.</p><audio controls> <source src="audio/tol/entol4.wav" type="audio/ogg"></audio>' +
+    '<p class = block-text>Aquí hay un ejemplo. Si movemos la pelota roja del primer palito al tercer palito en su tabla, severá como el target board.</p><audio controls> <source src="audio/tol/estol4.wav" type="audio/ogg"></audio></div>' ,
 
     "<div class = centerbox><p class = block-text>You will move the balls on your board by clicking on the pegs. When you click on a peg, the top ball will move into a box called 'your hand'. When you click on another peg, the ball in 'your hand' will move to the top of that peg.</p><p class = block-text>If you try to select a peg with no balls or try to place a ball on a full peg, nothing will happen. If you make your board look like the target board, you will move to the next problem.</p><p class = block-text>We will start with an easy example so that you can practice. <audio controls> <source src='audio/tol/entol5.wav' type='audio/ogg'></audio></p>" +
     "<p class = block-text>Para mover una pelota, hágale clic en el palito dónde está la pelota que quieres mover. Cuando le haga clic a un palito, la pelota por encima se moverá al cuadro que dice `Pelota en mano.` Cuando le haga clic en otro palito, la pelota en mano se moverá a la parte superior del palito. </p><p class = block-text>Si elije un palito sin pelotas o intentas poner una pelota en un palito que ya está llena, nada sucederá. Cuando haya completado su tabla para que se vea como el `target board,` pasará al siguiente problema. </p><p class = block-text>Empezaremos con un ejemplo fácil para poder practicar<audio controls> <source src='audio/tol/estol5.wav' type='audio/ogg'></audio></p></div>",
-    "<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><p> Este es un ejemplo video: <video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
+    "<div class = centerbox align=center ><p style='font-size: 24px'>Here is a video example:</p><p style='font-size: 24px'>Este es un ejemplo video: <video width='640' height='480' controls><source src='demos/toldemo.mov' type='video/mp4'></video>"
   ],
   allow_keys: false,
   show_clickable_nav: true,
