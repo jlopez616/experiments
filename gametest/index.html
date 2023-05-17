@@ -93,7 +93,7 @@
         }).then((unityInstance) => {
           myGameInstance = unityInstance;
           var playerID = getQueryVariable('id')
-          myGameInstance.SendMessage('GameHandler', 'GetQueryVariable', playerID);
+          myGameInstance.SendMessage('GameGenerator', 'GetQueryVariable', playerID);
           loadingBar.style.display = "none";
         }).catch((message) => {
           alert(message);
