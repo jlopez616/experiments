@@ -195,7 +195,7 @@ var correct = false
 var user_id = getQueryVariable('id')
 
 var getLink = function (id) {
-  if (id.slice(-1) > 5) {
+  if (id.slice(-1) < 5) {
     return "https://stem-lab.vercel.app/?id=" + user_id
   } else {
     return "https://stem-lab.vercel.app/?id=" + user_id
@@ -637,6 +637,17 @@ var problem_node = {
 
 /* create experiment definition array */
 var tower_of_london_experiment = [];
+var final_block = {
+  type: 'poldrack-text',
+  data: {
+      trial_id: "end",
+      exp_id: 'tower_of_london'
+  },
+  timing_response: 180000,
+  text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="' + getLink(user_id) + '">Please click here to continue.</a></p></div>',
+  timing_post_trial: 0,
+};
+tower_of_london_experiment.push(final_block);
 tower_of_london_experiment.push(instruction_node);
 tower_of_london_experiment.push(practice_node);
 tower_of_london_experiment.push(feedback_block);
@@ -650,16 +661,6 @@ for (var i = 0; i < problems.length; i++) {
 }
 
 tower_of_london_experiment.push(end_block);
-var final_block = {
-    type: 'poldrack-text',
-    data: {
-        trial_id: "end",
-        exp_id: 'tower_of_london'
-    },
-    timing_response: 180000,
-    text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="' + getLink(user_id) + '">Please click here to continue.</a></p></div>',
-    timing_post_trial: 0,
-};
 tower_of_london_experiment.push(final_block);
 
 
