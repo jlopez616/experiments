@@ -89,7 +89,7 @@ var test_controls = [{
 		}
 }]
 
-var test_stimuli = [{
+/*var test_stimuli = [{
 	image: '<div id="prob3" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 39,
@@ -117,9 +117,9 @@ var test_stimuli = [{
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
-}];
+}];*/
 
-var reverse_test_stimuli = [{
+/*var reverse_test_stimuli = [{
 	image: '<div id="prob3" class = centerbox><div class = flanker-text><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish2.png"></img><img src="flanker_images/fish.png"></img><img src="flanker_images/fish.png"></img></div></div>',
 	data: {
 		correct_response: 37,
@@ -147,14 +147,14 @@ var reverse_test_stimuli = [{
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
-}];
+}];*/
 
 
 practice_len = 4 //5 minutes //12
 exp_len = 60//5  60//should be both congruent and incogruent trials //12
 reverse_exp_len = 60 //60
 
-var new_practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
+//var new_practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 
 var practice_trials = {
 image: [
