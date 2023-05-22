@@ -135,13 +135,13 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   false, //R3 5
   true, //R4 1
   true,  //R4 2
-  false, //R4 3
+  true, //R4 3
   false, //R5 1
   true, //R5 2
   true, //R5 3
   true, //R5 4
   false,  //R5 5
-  true,  //R5 6
+  false,  //R5 6
 ];
 /*
   false, 
@@ -177,13 +177,13 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   true, //R2 5
   false, //R2 6
   false, //R3 1
-  false, //R3 2
+  true, //R3 2
   false, //R3 3
   true, //R3 4
   true, //R3 5
-  false, //R4 1
+  true, //R4 1
   true,  //R4 2
-  false, //R4 3
+  true, //R4 3
   false, //R5 1
   true, //R5 2
   true, //R5 3
@@ -592,7 +592,7 @@ var feedback = {
   var conclusion = {
     type: 'html-keyboard-response',
     stimulus: function(){
-      return '<div style="font-size:20px;"><p>Great job! Thanks for playing! <br><br><a href="https://stem-lab.vercel.app/tol.html?id=' + partN +'">Please click this link to continue.</a></p><p>¡Muy bien! ¡Gracias por haber jugado!<br><br><a href="https://stem-lab.vercel.app/tol.html?id=' + partN +'">Por favor, Por favor, haz clic aquí para continuar.</a></p></div>'
+      return '<div style="font-size:20px;"><p>Great job! Thanks for playing! <br><br><a href="https://stem-lab.vercel.app/tol.html?id=' + partN +'">Please click this link to continue.</a></p><p>¡Muy bien! ¡Gracias por haber jugado!<br><br><a href="https://stem-lab.vercel.app/.html?id=' + partN +'">Por favor, Por favor, haz clic aquí para continuar.</a></p></div>'
   },
     choices: jsPsych.NO_KEYS
   }
