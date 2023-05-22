@@ -644,7 +644,7 @@ var final_block = {
       exp_id: 'tower_of_london'
   },
   timing_response: 180000,
-  text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="' + getLink(user_id) + '">Please click here to continue.</a></p></div>',
+  text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="' + getLink(user_id) + '">Please click here to continue.</a></p><p id="gameIDtext" class = center-block-text>¡Gracias por haber jugado! <a href="' + getLink(user_id) + '">Por favor, Por favor, haz clic aquí para continuar.</a></p></div>',
   timing_post_trial: 0,
 };
 
