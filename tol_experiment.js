@@ -196,9 +196,9 @@ var user_id = getQueryVariable('id')
 
 var getLink = function (id) {
   if (id.slice(-1) < 5) {
-    return "https://stem-lab.vercel.app/?id=" + user_id
+    return "https://stem-lab.vercel.app/fourths/index.html?id=" + user_id
   } else {
-    return "https://stem-lab.vercel.app/?id=" + user_id
+    return "https://stem-lab.vercel.app/thirds/index.html?id=" + user_id
   }
 }
 var exp_stage = 'practice'
@@ -647,7 +647,7 @@ var final_block = {
   text: '<div class = centerbox><p id="gameIDtext" class = center-block-text>Thank you for playing. <a href="' + getLink(user_id) + '">Please click here to continue.</a></p></div>',
   timing_post_trial: 0,
 };
-tower_of_london_experiment.push(final_block);
+
 tower_of_london_experiment.push(instruction_node);
 tower_of_london_experiment.push(practice_node);
 tower_of_london_experiment.push(feedback_block);
