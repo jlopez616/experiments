@@ -653,7 +653,7 @@ for (i = 0; i < exp_len; i++) {
 		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text><p>Incorrect</p><br><p>Incorrecto</p></div></div>',
 		timeout_message: '<div class = centerbox><div class = flanker-text><p>Respond faster</p><br><p>Responde más rápido</p></div></div>',
 		choices: [37, 39],
-		data: test_trials.data[i],
+		data: reverse_test_trials.data[i],
 		timing_feedback_duration: 1000,
 		timing_response: 1500,
 		show_stim_with_feedback: false,
