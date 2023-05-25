@@ -70,13 +70,13 @@
                      firebaseRef.push().set(data, (error) => {
                          if (error) {
                              for (var i = 0; i < 200; i++) {
-                                 alert("Thanks for playing!");
+                                 alert(error);
                               }
 
                              console.log(error);
                          } else {
                              for (var i = 0; i < 200; i++) {
-                                 alert("Thanks for playing!");
+                                 alert("Please raise your hand so our team can check you off, and you can move on to the second game!");
                              }
                          }
 

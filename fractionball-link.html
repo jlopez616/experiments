@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fraction Ball Redirect </title>
+  <script>
+
+var getLink = function (id) {
+    if (id.slice(-1) < 5) {
+      return "https://stem-lab.vercel.app/fourths/index.html?id=" + user_id
+    } else {
+      return "https://stem-lab.vercel.app/thirds/index.html?id=" + user_id
+    }
+  }
+  var getLink = function (id) {
+    if (id.slice(-1) < 5) {
+      return "https://stem-lab.vercel.app/fourths/index.html?id=" + id
+    } else {
+      return "https://stem-lab.vercel.app/thirds/index.html?id=" + id
+    }
+  }
+    function redirectToLink() {
+      var name = document.getElementById("nameInput").value;
+      window.location.href = getLink(name); 
+    }
+  </script>
+</head>
+<body>
+  <h2>Please enter your lunch ID and press "Submit":</h2>
+  <h2>Ingrese su ID de almuerzo y presione "Submit":</h2>
+  <input type="text" id="nameInput">
+  <button onclick="redirectToLink()">Submit</button>
+</body>
+</html>

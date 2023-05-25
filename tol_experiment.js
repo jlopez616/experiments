@@ -661,6 +661,5 @@ for (var i = 0; i < problems.length; i++) {
 }
 
 tower_of_london_experiment.push(end_block);
-tower_of_london_experiment.push(final_block);
 
 
